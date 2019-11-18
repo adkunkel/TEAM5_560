@@ -13,18 +13,17 @@ GO
 
 
 DROP TABLE IF EXISTS Experts.WeeklyRankings;
+DROP TABLE IF EXISTS Players.PlayerStats;
+DROP TABLE IF EXISTS Players.DefenseStats;
+DROP TABLE IF EXISTS Players.KickerStats;
+DROP TABLE IF EXISTS Players.TeamPlayer;
+DROP TABLE IF EXISTS Players.PlayerInfo;
+DROP TABLE IF EXISTS Players.Player;
+DROP TABLE IF EXISTS Games.TeamGame;
+DROP TABLE IF EXISTS Games.Game;
+DROP TABLE IF EXISTS Games.Season;
 DROP TABLE IF EXISTS NFL.TeamStats;
 DROP TABLE IF EXISTS NFL.Teams;
-DROP TABLE IF EXISTS Games.Game;
-DROP TABLE IF EXISTS Games.TeamGame;
-DROP TABLE IF EXISTS Games.Season;
-DROP TABLE IF EXISTS Players.KickerStats;
-DROP TABLE IF EXISTS Players.DefenseStats;
-DROP TABLE IF EXISTS Players.PlayerStats;
-DROP TABLE IF EXISTS Players.PlayerInfo;
-DROP TABLE IF EXISTS Players.TeamPlayer;
-DROP TABLE IF EXISTS Players.Player;
-
 
 CREATE TABLE NFL.Teams
 (
