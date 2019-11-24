@@ -16,41 +16,31 @@ using System.Windows.Shapes;
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for AlterDatabase.xaml
+    /// Interaction logic for QueryDatabase.xaml
     /// </summary>
-    public partial class AlterDatabase : Page
+    public partial class QueryDatabase : Page
     {
-        public AlterDatabase()
+        public QueryDatabase()
         {
             InitializeComponent();
         }
-
         /// <summary>
-        /// Navigates to the PlayerInsert page.
+        /// Navigates to the ReportQuery page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void InsertButton(object sender, EventArgs args)
+        private void ReportQueryButton(object sender, EventArgs args)
         {
-            //Navigate to page that allows user to insert a player.
+            NavigationService.Navigate(new ReportQuery());
         }
         /// <summary>
-        /// Navigates to the PlayerUpdate page.
+        /// Navigates to the NonReportQuery page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void UpdateButton(object sender, EventArgs args)
+        private void NonReportQueryButton(object sender, EventArgs args)
         {
-            //Navigate to page that allows user to update a player.
-        }
-        /// <summary>
-        /// Reload the database.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void ReloadButton(object sender, EventArgs args)
-        {
-            //Reload the database using the internet to provide the data.
+            //NavigationService.Navigate(new NonReportQuery());
         }
         /// <summary>
         /// Navigates to the InitialSelection page.
@@ -61,6 +51,5 @@ namespace UserInterface
         {
             NavigationService.Navigate(new InitialSelection());
         }
-
     }
 }

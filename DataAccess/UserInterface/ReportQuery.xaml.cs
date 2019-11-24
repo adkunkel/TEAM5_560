@@ -16,41 +16,49 @@ using System.Windows.Shapes;
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for AlterDatabase.xaml
+    /// Interaction logic for ReportQuery.xaml
     /// </summary>
-    public partial class AlterDatabase : Page
+    public partial class ReportQuery : Page
     {
-        public AlterDatabase()
+        public ReportQuery()
         {
             InitializeComponent();
         }
-
         /// <summary>
-        /// Navigates to the PlayerInsert page.
+        /// Populates the listbox with information from the given query.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void InsertButton(object sender, EventArgs args)
+        private void DefenseButton(object sender, EventArgs args)
         {
-            //Navigate to page that allows user to insert a player.
+            //Query 1
         }
         /// <summary>
-        /// Navigates to the PlayerUpdate page.
+        /// Populates the listbox with information from the given query.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void UpdateButton(object sender, EventArgs args)
+        private void TouchdownButton(object sender, EventArgs args)
         {
-            //Navigate to page that allows user to update a player.
+            //Query 2
         }
         /// <summary>
-        /// Reload the database.
+        /// Populates the listbox with information from the given query.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void ReloadButton(object sender, EventArgs args)
+        private void ExpertButton(object sender, EventArgs args)
         {
-            //Reload the database using the internet to provide the data.
+            //Query 3
+        }
+        /// <summary>
+        /// Populates the listbox with information from the given query.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void YardageButton(object sender, EventArgs args)
+        {
+            //Query 4
         }
         /// <summary>
         /// Navigates to the InitialSelection page.
@@ -61,6 +69,5 @@ namespace UserInterface
         {
             NavigationService.Navigate(new InitialSelection());
         }
-
     }
 }
