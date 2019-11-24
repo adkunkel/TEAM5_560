@@ -40,7 +40,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void QueryDatabaseButton(object sender, EventArgs args)
         {
-
+            NavigationService.Navigate(new QueryDatabase());
         }
     }
 }
