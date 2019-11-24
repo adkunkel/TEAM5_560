@@ -24,5 +24,23 @@ namespace UserInterface
         {
             InitializeComponent();
         }
+
+        public void OnLoadCompleted(object sender, NavigationEventArgs args)
+        {
+            SetFrameDataContext();
+        }
+
+        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            SetFrameDataContext();
+        }
+
+        private void SetFrameDataContext()
+        {
+            if (Interface.Content is FrameworkElement content)
+            {
+                content.DataContext = Interface.DataContext;
+            }
+        }
     }
 }
