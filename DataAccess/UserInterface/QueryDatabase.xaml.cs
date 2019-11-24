@@ -40,7 +40,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void NonReportQueryButton(object sender, EventArgs args)
         {
-            //NavigationService.Navigate(new NonReportQuery());
+            NavigationService.Navigate(new NonReportQuery());
         }
         /// <summary>
         /// Navigates to the InitialSelection page.
