@@ -149,3 +149,4 @@ CREATE TABLE Experts.WeeklyRankings
 	PositionRank INT,
 	[Week] INT NOT NULL
 );
+
