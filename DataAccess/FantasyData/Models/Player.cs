@@ -47,5 +47,26 @@ namespace FantasyData.Models
             public string ByeWeek { get; set; }
             public enum Position { QB, RB, WR, TE}
         }
+
+        public class TeamPlayer
+        {
+            // this class may need to encap all other classes
+            public DateTime StartDate { get; set; }
+            public DateTime EndDate { get; set; }
+        }
+
+        public class PlayerInfo
+        {
+            // this class may need to encap all other classses
+            public int PlayerInfoID { get; set; }
+            public string Name { get; set; }
+            public string Status { get; set; } // may want to do enum
+            public string Height { get; set; }
+            public string Weight { get; set; }
+            public int YearsPro { get; set; }
+            public DateTime BirthDate { get; set; }
+            public string position { get; set; }
+
+        }
     }
 }
