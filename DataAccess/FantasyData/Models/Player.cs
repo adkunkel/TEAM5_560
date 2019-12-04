@@ -38,7 +38,7 @@ namespace FantasyData.Models
             public string PlayerID { get; set; }
             public string PassYard { get; set; }
             public string RushYard { get; set; }
-            public string RecievingYards { get; set; }
+            public string ReceivingYards { get; set; }
             public string Receptions { get; set; }
             public string Touchdowns { get; set; }
             public string Interceptions { get; set; }
@@ -65,7 +65,7 @@ namespace FantasyData.Models
             public int Weight { get; set; }
             public int YearsPro { get; set; }
             public DateTime BirthDate { get; set; }
-            public string Position { get; set; }
+            public Position Position { get; set; }
         }
     }
 }
