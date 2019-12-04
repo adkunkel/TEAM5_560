@@ -61,12 +61,11 @@ namespace FantasyData.Models
             public int PlayerInfoID { get; set; }
             public string Name { get; set; }
             public string Status { get; set; } // may want to do enum
-            public string Height { get; set; }
-            public string Weight { get; set; }
+            public int Height { get; set; }
+            public int Weight { get; set; }
             public int YearsPro { get; set; }
             public DateTime BirthDate { get; set; }
-            public string position { get; set; }
-
+            public string Position { get; set; }
         }
     }
 }
