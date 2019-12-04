@@ -14,14 +14,14 @@ namespace FantasyData.Api
         /// </summary>
         /// <param name="url">Website Address</param>
         /// <returns>Player information list</returns>
-        public static async Task<VALUE> LoadInformation(string url)
+        public static async Task<ApiModel> LoadInformation(string url)
         {
             using (HttpResponseMessage response = await ApiAssistant.ApiClient.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
                 {
                     ApiModel model = await response.Content.ReadAsAsync<ApiModel>();
-                    return VALUE;
+                    return ApiModel;
                 }
                 else
                 {
