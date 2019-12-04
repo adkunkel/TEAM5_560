@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DatabaseConnection.xaml.cs">
+      <DependentUpon>DatabaseConnection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NonReportQuery.xaml.cs">
       <DependentUpon>NonReportQuery.xaml</DependentUpon>
     </Compile>
@@ -65,6 +68,10 @@
       <DependentUpon>ReportQuery.xaml</DependentUpon>
     </Compile>
     <Page Include="AlterDatabase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DatabaseConnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
