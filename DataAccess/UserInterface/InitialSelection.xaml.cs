@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 //Allows for connection to database.
 using System.Data.SqlClient;
+using FantasyData.Models;
+using System.IO;
 
 namespace UserInterface
 {
@@ -67,7 +69,27 @@ namespace UserInterface
         /// <param name="args"></param>
         private void QueryDatabaseButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new QueryDatabase());
+            //NavigationService.Navigate(new QueryDatabase());
+            //NavigationService.Navigate(new AlterDatabase());
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                String sql;
+                //HARDCODE THIS
+                sql = File.ReadAllText(@"C:\Users\Robbieo\Source\Repos\TEAM5_560\DataAccess\FantasyData\SQL\table_create.sql");
+                command = new SqlCommand(sql, connection);
+                adapter.InsertCommand = new SqlCommand(sql, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                MessageBox.Show(sql);
+                command.Dispose();
+                MessageBox.Show("Tables Created");
+            }
+            else
+            {
+                MessageBox.Show("Open Connection First");
+            }
+            connection.Close();
         }
     }
 }

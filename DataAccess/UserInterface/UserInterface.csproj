@@ -136,5 +136,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FantasyData\FantasyData.csproj">
+      <Project>{9b61879e-f965-481b-a207-5b6dada44869}</Project>
+      <Name>FantasyData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
