@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Api\**" />
+    <EmbeddedResource Remove="Api\**" />
+    <None Remove="Api\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controller\Controller.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controller\" />
     <Folder Include="DataDelegates\" />
     <Folder Include="Sql\" />
     <Folder Include="Tables\" />
