@@ -1,3 +1,3 @@
 Select ks.playerID
-From Player.KickerStats ks
+From Players.KickerStats ks
 Where ks.XPMissed < 5;
