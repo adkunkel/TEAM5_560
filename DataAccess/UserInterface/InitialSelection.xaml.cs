@@ -44,7 +44,7 @@ namespace UserInterface
                 SqlCommand command;
                 SqlDataReader dataReader;
                 String sql, Output = "";
-                sql = "SELECT * FROM Clubs.Club";
+                sql = "SELECT * FROM Players.PlayerStats";
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())
@@ -70,26 +70,6 @@ namespace UserInterface
         private void QueryDatabaseButton(object sender, EventArgs args)
         {
             //NavigationService.Navigate(new QueryDatabase());
-            //NavigationService.Navigate(new AlterDatabase());
-            if (connection.State == System.Data.ConnectionState.Open)
-            {
-                SqlCommand command;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                String sql;
-                //HARDCODE THIS
-                sql = File.ReadAllText(@"C:\Users\Robbieo\Source\Repos\TEAM5_560\DataAccess\FantasyData\SQL\table_create.sql");
-                command = new SqlCommand(sql, connection);
-                adapter.InsertCommand = new SqlCommand(sql, connection);
-                adapter.InsertCommand.ExecuteNonQuery();
-                MessageBox.Show(sql);
-                command.Dispose();
-                MessageBox.Show("Tables Created");
-            }
-            else
-            {
-                MessageBox.Show("Open Connection First");
-            }
-            connection.Close();
         }
     }
 }
