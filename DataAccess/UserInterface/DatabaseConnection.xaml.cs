@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 //Allows for connection to database.
 using System.Data.SqlClient;
+using System.IO;
 
 namespace UserInterface
 {
@@ -22,13 +23,12 @@ namespace UserInterface
     /// </summary>
     public partial class DatabaseConnection : Page
     {
+        private SqlConnection connection;
+
         public DatabaseConnection()
         {
             InitializeComponent();
         }
-
-        //Connect to the database.
-        private SqlConnection cnn;
 
         /// <summary>
         /// Connect to the database.
@@ -40,11 +40,34 @@ namespace UserInterface
             string connectionString;
             string username = this.Username.Text;
             string password = this.Password.Password;
+            if(username == "")
+            {
+                username = "Robbieo";
+                password = "Database!";
+            }
             connectionString = $"Data Source=mssql.cs.ksu.edu; Initial Catalog={username}; User ID={username}; Password={password}";
-            cnn = new SqlConnection(connectionString);
-            cnn.Open();
+            
+            connection = new SqlConnection(connectionString);
+            connection.Open();
             MessageBox.Show("Connection Open");
-            cnn.Close();
+
+            //Create Database Tables
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                String sql;
+                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\table_create.sql");
+                command = new SqlCommand(sql, connection);
+                adapter.InsertCommand = new SqlCommand(sql, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                MessageBox.Show(sql);
+                command.Dispose();
+                MessageBox.Show("Tables Created");
+            }
+
+            NavigationService.Navigate(new InitialSelection(connection));
+            //connection.Close();
         }
     }
 }

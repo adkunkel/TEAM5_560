@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//Allows for connection to database.
+using System.Data.SqlClient;
+using FantasyData.Models;
+using System.IO;
 
 namespace UserInterface
 {
@@ -20,9 +24,12 @@ namespace UserInterface
     /// </summary>
     public partial class InitialSelection : Page
     {
-        public InitialSelection()
+        private SqlConnection connection;
+
+        public InitialSelection(SqlConnection sqlConnection)
         {
             InitializeComponent();
+            connection = sqlConnection;
         }
         /// <summary>
         /// Navigates to the AlterDatabase page.
@@ -31,7 +38,29 @@ namespace UserInterface
         /// <param name="args"></param>
         private void AlterDatabaseButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new AlterDatabase());
+            //NavigationService.Navigate(new AlterDatabase());
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand command;
+                SqlDataReader dataReader;
+                String sql, Output = "";
+                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query1.sql");
+                command = new SqlCommand(sql, connection);
+                dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Output = Output + dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + " - " + dataReader.GetValue(2) + "\n";
+                }
+                MessageBox.Show(Output);
+
+                dataReader.Close();
+                command.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Open Connection First");
+            }
+            connection.Close();
         }
         /// <summary>
         /// Navigates to the QueryDatabase page.
@@ -40,7 +69,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void QueryDatabaseButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new QueryDatabase());
+            //NavigationService.Navigate(new QueryDatabase());
         }
     }
 }

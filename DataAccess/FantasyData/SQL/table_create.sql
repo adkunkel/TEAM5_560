@@ -1,15 +1,15 @@
 IF SCHEMA_ID(N'NFL') IS NULL
 	EXEC(N'CREATE SCHEMA [NFL];');
-GO
+--GO
 IF SCHEMA_ID(N'Games') IS NULL
 	EXEC(N'CREATE SCHEMA [Games];');
-GO
+--GO
 IF SCHEMA_ID(N'Players') IS NULL
 	EXEC(N'CREATE SCHEMA [Players];');
-GO
+--GO
 IF SCHEMA_ID(N'Experts') IS NULL
 	EXEC(N'CREATE SCHEMA [Experts];');
-GO
+--GO
 
 
 DROP TABLE IF EXISTS Experts.WeeklyRankings;
