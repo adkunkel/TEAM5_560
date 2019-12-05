@@ -57,7 +57,6 @@ namespace UserInterface
                 SqlCommand command;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 String sql;
-                //HARDCODE THIS
                 sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\table_create.sql");
                 command = new SqlCommand(sql, connection);
                 adapter.InsertCommand = new SqlCommand(sql, connection);
