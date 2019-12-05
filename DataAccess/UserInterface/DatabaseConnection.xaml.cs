@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 //Allows for connection to database.
 using System.Data.SqlClient;
+using System.IO;
 
 namespace UserInterface
 {
@@ -49,6 +50,23 @@ namespace UserInterface
             connection = new SqlConnection(connectionString);
             connection.Open();
             MessageBox.Show("Connection Open");
+
+            //Create Database Tables
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                String sql;
+                //HARDCODE THIS
+                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\table_create.sql");
+                command = new SqlCommand(sql, connection);
+                adapter.InsertCommand = new SqlCommand(sql, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                MessageBox.Show(sql);
+                command.Dispose();
+                MessageBox.Show("Tables Created");
+            }
+
             NavigationService.Navigate(new InitialSelection(connection));
             //connection.Close();
         }
