@@ -1,3 +1,3 @@
 Select ts.TeamID
 From NFL.TeamStats ts
-GroupBy ts.Record asc, ts.PointsScored asc
+Group By ts.Record asc, ts.PointsScored asc;

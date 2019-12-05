@@ -1,3 +1,3 @@
 Select ds.DefenseStatID
-From Player.DefenseStats ds
-GroupBy ds.RushYards asc, ds.PassYards asc
+From Players.DefenseStats ds
+Group By ds.RushYards asc, ds.PassYards asc
