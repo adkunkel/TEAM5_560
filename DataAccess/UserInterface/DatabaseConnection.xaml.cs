@@ -58,7 +58,7 @@ namespace UserInterface
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 String sql;
                 //HARDCODE THIS
-                sql = File.ReadAllText(@"C:\Users\Robbieo\Source\Repos\TEAM5_560\DataAccess\FantasyData\SQL\table_create.sql");
+                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\table_create.sql");
                 command = new SqlCommand(sql, connection);
                 adapter.InsertCommand = new SqlCommand(sql, connection);
                 adapter.InsertCommand.ExecuteNonQuery();

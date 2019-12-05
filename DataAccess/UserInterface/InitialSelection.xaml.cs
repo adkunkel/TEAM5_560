@@ -44,7 +44,8 @@ namespace UserInterface
                 SqlCommand command;
                 SqlDataReader dataReader;
                 String sql, Output = "";
-                sql = "SELECT * FROM Players.PlayerStats";
+                //HARDCODE THIS
+                sql = File.ReadAllText("");
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())
