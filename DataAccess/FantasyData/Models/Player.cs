@@ -65,7 +65,7 @@ namespace FantasyData.Models
             public int Weight { get; set; }
             public int YearsPro { get; set; }
             public DateTime BirthDate { get; set; }
-            public string Position { get; set; }
+            public QBRWTE.Position Position { get; set; }
         }
     }
 }
