@@ -59,7 +59,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void HomeButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new InitialSelection());
+            //NavigationService.Navigate(new InitialSelection());
         }
 
     }
