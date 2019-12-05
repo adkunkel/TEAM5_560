@@ -22,13 +22,12 @@ namespace UserInterface
     /// </summary>
     public partial class DatabaseConnection : Page
     {
+        private SqlConnection connection;
+
         public DatabaseConnection()
         {
             InitializeComponent();
         }
-
-        //Connect to the database.
-        private SqlConnection cnn;
 
         /// <summary>
         /// Connect to the database.
@@ -40,11 +39,18 @@ namespace UserInterface
             string connectionString;
             string username = this.Username.Text;
             string password = this.Password.Password;
+            if(username == "")
+            {
+                username = "Robbieo";
+                password = "Database!";
+            }
             connectionString = $"Data Source=mssql.cs.ksu.edu; Initial Catalog={username}; User ID={username}; Password={password}";
-            cnn = new SqlConnection(connectionString);
-            cnn.Open();
+            
+            connection = new SqlConnection(connectionString);
+            connection.Open();
             MessageBox.Show("Connection Open");
-            cnn.Close();
+            NavigationService.Navigate(new InitialSelection(connection));
+            //connection.Close();
         }
     }
 }
