@@ -44,6 +44,7 @@ namespace FantasyData.Controller
                 player_info.Position = position;
                 
                 player_infos[i] = player_info;
+                i++;
             }
         }
 
