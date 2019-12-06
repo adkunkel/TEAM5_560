@@ -1,0 +1,1 @@
+INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, RecievingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)

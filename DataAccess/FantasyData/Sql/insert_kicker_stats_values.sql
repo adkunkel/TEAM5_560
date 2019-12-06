@@ -1,0 +1,1 @@
+INSERT Players.KickerStats(PlayerID, XPMade, XPMissed, FGGD, FGNG, TeamGameID, ByeWeek)

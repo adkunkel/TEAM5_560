@@ -1,0 +1,1 @@
+INSERT Players.PlayerInfo(PlayerID, [Name], [Status], Height, [Weight], YearsPro, BirthDate, Position)
