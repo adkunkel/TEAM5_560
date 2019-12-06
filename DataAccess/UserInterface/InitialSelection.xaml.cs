@@ -44,7 +44,7 @@ namespace UserInterface
                 SqlCommand command;
                 SqlDataReader dataReader;
                 String sql, Output = "";
-                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query1.sql");
+                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query6.sql");
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())
