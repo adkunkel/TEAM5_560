@@ -1,3 +1,3 @@
 Select ps.PlayerID
-From Player.PlayerStats ps
-GroupBy PassYards asc
+From Players.PlayerStats ps
+Order By PassYards asc

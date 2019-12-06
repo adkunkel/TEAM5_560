@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Frame Source="DatabaseConnection.xaml" BorderBrush="Black" 
+        <Frame Source="InitialSelection.xaml" BorderBrush="Black" 
                Name="Interface" LoadCompleted="OnLoadCompleted" DataContextChanged="OnDataContextChanged"/>
     </Grid>
 </Window>

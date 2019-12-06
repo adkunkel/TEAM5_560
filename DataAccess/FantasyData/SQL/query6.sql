@@ -1,3 +1,3 @@
 Select ps.PlayerID
-From Player.PlayerStats ps
-GroupBy ps.RecievingYards asc, ps.Recipetions asc, ps.Touchdowns asc
+From Players.PlayerStats ps
+Order By ps.RecievingYards asc, ps.Receptions asc, ps.Touchdowns asc
