@@ -31,4 +31,4 @@ VALUES
 	(N'Seattle Seahawks', 11),
 	(N'Tampa Bay Buccaneers', 7),
 	(N'Tennessee Titans', 11),
-	(N'Washington Redskins', 10)
+	(N'Washington Redskins', 10);
