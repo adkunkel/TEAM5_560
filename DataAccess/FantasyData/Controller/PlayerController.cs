@@ -6,5 +6,5 @@ using FantasyData.Models;
 
 public class PlayerController
 {
-    pulbic List<>
+    //pulbic List<>
 }

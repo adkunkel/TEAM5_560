@@ -45,7 +45,7 @@ namespace UserInterface
                 dataReader = command.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    Output = Output + dataReader.GetValue(0) + "\n";
+                    Output = Output + dataReader.GetValue(1) + "\n";
                 }
                 MessageBox.Show(Output);
 

@@ -47,6 +47,12 @@ namespace UserInterface
                 adapter.InsertCommand.ExecuteNonQuery();
                 //MessageBox.Show(sql);
                 command.Dispose();
+                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\insert_teams.sql");
+                command = new SqlCommand(sql, connection);
+                adapter.InsertCommand = new SqlCommand(sql, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                //MessageBox.Show(sql);
+                command.Dispose();
             }
             else
             {
