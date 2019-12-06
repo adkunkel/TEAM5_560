@@ -1,0 +1,1 @@
+INSERT Games.Game(HomeTeamID, VisitorTeamID, [Week], SeasonID, [Date], Result)

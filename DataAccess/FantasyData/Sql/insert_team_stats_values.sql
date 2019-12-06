@@ -1,0 +1,1 @@
+INSERT NFL.TeamStats(TeamID, Record, PointsScored, PointsAllowed)

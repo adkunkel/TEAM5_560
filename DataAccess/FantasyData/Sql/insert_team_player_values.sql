@@ -1,0 +1,1 @@
+INSERT Players.TeamPlayer(TeamID, Name)
