@@ -66,7 +66,7 @@ namespace UserInterface
                 MessageBox.Show("Tables Created");
             }
 
-            NavigationService.Navigate(new InitialSelection(connection));
+            NavigationService.Navigate(new InitialSelection());
             //connection.Close();
         }
     }

@@ -26,10 +26,45 @@ namespace UserInterface
     {
         private SqlConnection connection;
 
+        public InitialSelection()
+        {
+            InitializeComponent();
+            string connectionString;
+            connectionString = $"Data Source=mssql.cs.ksu.edu; Initial Catalog=Robbieo; User ID=Robbieo; Password=Database!";
+
+            connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            //Create Database Tables
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                String sql;
+                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\table_create.sql");
+                command = new SqlCommand(sql, connection);
+                adapter.InsertCommand = new SqlCommand(sql, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                //MessageBox.Show(sql);
+                command.Dispose();
+                MessageBox.Show("Connection Open - Tables Created");
+            }
+        }
+
         public InitialSelection(SqlConnection sqlConnection)
         {
             InitializeComponent();
             connection = sqlConnection;
+            if (connection.State == System.Data.ConnectionState.Closed)
+            {
+                CloseConnection.Visibility = Visibility.Hidden;
+                OpenConnection.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                CloseConnection.Visibility = Visibility.Visible;
+                OpenConnection.Visibility = Visibility.Hidden;
+            }
         }
         /// <summary>
         /// Navigates to the AlterDatabase page.
@@ -38,29 +73,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void AlterDatabaseButton(object sender, EventArgs args)
         {
-            //NavigationService.Navigate(new AlterDatabase());
-            if (connection.State == System.Data.ConnectionState.Open)
-            {
-                SqlCommand command;
-                SqlDataReader dataReader;
-                String sql, Output = "";
-                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query6.sql");
-                command = new SqlCommand(sql, connection);
-                dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Output = Output + dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + " - " + dataReader.GetValue(2) + "\n";
-                }
-                MessageBox.Show(Output);
-
-                dataReader.Close();
-                command.Dispose();
-            }
-            else
-            {
-                MessageBox.Show("Open Connection First");
-            }
-            connection.Close();
+            NavigationService.Navigate(new AlterDatabase(connection));
         }
         /// <summary>
         /// Navigates to the QueryDatabase page.
@@ -69,7 +82,45 @@ namespace UserInterface
         /// <param name="args"></param>
         private void QueryDatabaseButton(object sender, EventArgs args)
         {
-            //NavigationService.Navigate(new QueryDatabase());
+            NavigationService.Navigate(new QueryDatabase(connection));
+        }
+        /// <summary>
+        /// Closes the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void CloseConnectionButton(object sender, EventArgs args)
+        {
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                connection.Close();
+                MessageBox.Show("Connection Closed");
+                CloseConnection.Visibility = Visibility.Hidden;
+                OpenConnection.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("Connection Already Closed");
+            }
+        }
+        /// <summary>
+        /// Closes the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OpenConnectionButton(object sender, EventArgs args)
+        {
+            if (connection.State == System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+                MessageBox.Show("Connection Opened");
+                CloseConnection.Visibility = Visibility.Visible;
+                OpenConnection.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                MessageBox.Show("Connection Already Open");
+            }
         }
     }
 }

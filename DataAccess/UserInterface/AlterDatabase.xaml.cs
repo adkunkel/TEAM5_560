@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace UserInterface
 {
@@ -20,9 +21,11 @@ namespace UserInterface
     /// </summary>
     public partial class AlterDatabase : Page
     {
-        public AlterDatabase()
+        private SqlConnection connection;
+        public AlterDatabase(SqlConnection sqlConnection)
         {
             InitializeComponent();
+            connection = sqlConnection;
         }
 
         /// <summary>
@@ -59,7 +62,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void HomeButton(object sender, EventArgs args)
         {
-            //NavigationService.Navigate(new InitialSelection());
+            NavigationService.Navigate(new InitialSelection(connection));
         }
 
     }
