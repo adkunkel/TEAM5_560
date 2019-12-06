@@ -37,6 +37,7 @@ namespace UserInterface
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
+                /*
                 SqlCommand command;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 String sql;
@@ -46,7 +47,7 @@ namespace UserInterface
                 adapter.InsertCommand.ExecuteNonQuery();
                 command.Dispose();
                 MessageBox.Show("Insert Successful");
-                NavigationService.Navigate(new AlterDatabase(connection));
+                NavigationService.Navigate(new AlterDatabase(connection));*/
             }
             else
             {
