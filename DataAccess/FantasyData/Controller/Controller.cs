@@ -9,28 +9,28 @@ namespace FantasyData.Controller
     {
         public Models.Player.PlayerInfo[] player_infos = new Models.Player.PlayerInfo[532];
 
-        public List<Player.PlayerInfo> QuarterBacks = new Player.PlayerInfo[100];
-        public List<Player.PlayerInfo> RunningBacks = new Player.PlayerInfo[100];
-        public List<Player.PlayerInfo> TeightEnds = new Player.PlayerInfo[75];
-        public List<Player.PlayerInfo> WideRecivers  = new Player.PlayerInfo[200];
+        public List<Player.PlayerInfo> QuarterBacks = new List<Player.PlayerInfo>(100);
+        public List<Player.PlayerInfo> RunningBacks = new List<Player.PlayerInfo>(100);
+        public List<Player.PlayerInfo> TightEnds = new List<Player.PlayerInfo>(75);
+        public List<Player.PlayerInfo> WideReceivers  = new List<Player.PlayerInfo>(200);
         
-        public static void SortPlayerInfo()
+        public void SortPlayerInfo()
         {
             foreach(Player.PlayerInfo p in player_infos)
             {
                 switch(p.Position)
                 {
-                    case "QB":
+                    case Position.QB:
                         QuarterBacks.Add(p);
                         break;
-                    case "RB":
+                    case Position.RB:
                         RunningBacks.Add(p);
                         break;
-                    case "WR":
-                        WideRecivers.Add(p);
+                    case Position.WR:
+                        WideReceivers.Add(p);
                         break;
-                    case "TE":
-                        TeightEnds.Add(p);
+                    case Position.TE:
+                        TightEnds.Add(p);
                         break;
 
                 }
@@ -39,7 +39,6 @@ namespace FantasyData.Controller
         }
         public void fillArray(string filepath)
         {
-            Models.
             StreamReader reader = new StreamReader(filepath);
             reader.ReadLine();
             int i = 0;
@@ -47,20 +46,20 @@ namespace FantasyData.Controller
             {
                 string raw_player_info = reader.ReadLine();
                 string[] raw_player_info_split = raw_player_info.Split('|');
-                Player.QBRWTE.Position position = Player.QBRWTE.Position.QB;
+                Position position = Position.QB;
                 switch(raw_player_info_split[5])
                 {
                     case "QB":
-                        position = Player.QBRWTE.Position.QB;
+                        position = Position.QB;
                         break;
                     case "RB":
-                        position = Player.QBRWTE.Position.RB;
+                        position = Position.RB;
                         break;
                     case "WR:":
-                        position = Player.QBRWTE.Position.WR;
+                        position = Position.WR;
                         break;
                     case "TE":
-                        position = Player.QBRWTE.Position.TE;
+                        position = Position.TE;
                         break;
                 }
 
@@ -86,10 +85,9 @@ namespace FantasyData.Controller
  //           sql =
         }
 
-        public Models.Player.PlayerInfo[] QuarterBackList( string file)
+        public void QuarterBackList(string file)
         {
-        
-            using(StreamReader sr = new StreamReader())
+            using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
                 for(int i = 0; i < 100; i++)
@@ -111,13 +109,12 @@ namespace FantasyData.Controller
                     }
                 }
             }
-            return QuarterBacks;
         }
         
-        public Models.Player.PlayerInfo[] RunningBackList( string file)
+        public void RunningBackList( string file)
         {
         
-            using(StreamReader sr = new StreamReader())
+            using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
                 for(int i = 0; i < 100; i++)
@@ -139,13 +136,12 @@ namespace FantasyData.Controller
                     }
                 }
             }
-            return RunningBacks;
         }
 
-         public Models.Player.PlayerInfo[] TieghtEndsList(string file)
+         public void TightEndsList(string file)
         {
         
-            using(StreamReader sr = new StreamReader())
+            using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
                 for(int i = 0; i < 75; i++)
@@ -162,18 +158,17 @@ namespace FantasyData.Controller
                         p.Touchdowns = pLine[4];
                         p.Interceptions = pLine[5];
                         p.Fumbles = pLine[6];
-                        TieghtEnds[k].Stats.Add(p);
+                        TightEnds[k].Stats.Add(p);
                                            
                     }
                 }
             }
-            return RunningBacks;
         }
 
-        public Models.Player.PlayerInfo[] WideRecieversList(string file)
+        public void WideReceiversList(string file)
         {
         
-            using(StreamReader sr = new StreamReader())
+            using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
                 for(int i = 0; i < 200; i++)
@@ -190,12 +185,11 @@ namespace FantasyData.Controller
                         p.Touchdowns = pLine[4];
                         p.Interceptions = pLine[5];
                         p.Fumbles = pLine[6];
-                        WideRecievers[k].Stats.Add(p);
+                        WideReceivers[k].Stats.Add(p);
                                            
                     }
                 }
             }
-            return RunningBacks;
         }
 
     }

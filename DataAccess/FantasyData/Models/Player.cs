@@ -4,6 +4,7 @@ using System.Text;
 
 namespace FantasyData.Models
 {
+    public enum Position { QB, RB, WR, TE }
     class Player
     {
         public class Kicker
@@ -64,8 +65,8 @@ namespace FantasyData.Models
             public int Weight { get; set; }
             public int YearsPro { get; set; }
             public DateTime BirthDate { get; set; }
-            public enum Position { QB, RB, WR, TE}
+            public Position Position { get; set; }
             public List<QBRWTE> Stats {get; set;}
         }
-    }
+    } 
 }
