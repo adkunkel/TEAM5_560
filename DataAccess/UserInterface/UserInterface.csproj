@@ -58,6 +58,9 @@
     <Compile Include="DatabaseConnection.xaml.cs">
       <DependentUpon>DatabaseConnection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InsertPlayer.xaml.cs">
+      <DependentUpon>InsertPlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NonReportQuery.xaml.cs">
       <DependentUpon>NonReportQuery.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InitialSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InsertPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -35,7 +35,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void InsertButton(object sender, EventArgs args)
         {
-            //Navigate to page that allows user to insert a player.
+            NavigationService.Navigate(new InsertPlayer(connection));
         }
         /// <summary>
         /// Navigates to the PlayerUpdate page.

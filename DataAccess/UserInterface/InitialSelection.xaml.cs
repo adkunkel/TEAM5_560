@@ -47,7 +47,10 @@ namespace UserInterface
                 adapter.InsertCommand.ExecuteNonQuery();
                 //MessageBox.Show(sql);
                 command.Dispose();
-                MessageBox.Show("Connection Open - Tables Created");
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
             }
         }
 
