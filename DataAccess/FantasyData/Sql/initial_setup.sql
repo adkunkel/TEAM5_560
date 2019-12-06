@@ -38,8 +38,6 @@ VALUES
 	(2019);
 	
 INSERT Games.Game(HomeTeamID, VisitorTeamID, [Week], SeasonID, [Date], Result)
-FROM
-
 VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 1, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-05 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), 1, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-08 13:00:00), 
@@ -57,8 +55,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), 1, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-08 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), 1, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-09 19:10:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Denver Broncos"), 1, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-09 22:20:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tampa Bay Buccaneers"), 2, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-12 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 2, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-15 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), 2, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-15 13:00:00), 
@@ -75,8 +71,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), 2, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-15 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), 2, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-15 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Jets"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), 2, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-16 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Jacksonville Jaguars"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tennessee Titans"), 3, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-19 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), 3, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-22 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), 3, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-22 13:00:00), 
@@ -93,8 +87,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), 3, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-22 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), 3, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-22 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Washington Redskins"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), 3, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-23 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), 4, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-26 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), 4, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-29 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), 4, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-29 13:00:00), 
@@ -110,8 +102,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), 4, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-29 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), 4, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-29 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cincinnati Bengals"), 4, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-09-30 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Seattle Seahawks"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), 5, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-03 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cincinnati Bengals"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 5, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-06 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), 5, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-06 13:00:00), 
@@ -127,8 +117,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 5, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-06 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), 5, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-06 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), 5, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-07 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), 6, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-10 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tampa Bay Buccaneers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), 6, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-13 09:30:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cincinnati Bengals"), 6, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-13 13:00:00), 
@@ -143,8 +131,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Denver Broncos"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tennessee Titans"), 6, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-13 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), 6, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-13 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Detroit Lions"), 6, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-14 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Denver Broncos"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), 7, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-17 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 7, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-20 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), 7, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-20 13:00:00), 
@@ -159,8 +145,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), 7, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-20 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), 7, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-20 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Jets"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), 7, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-21 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Washington Redskins"), 8, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-24 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 8, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-27 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cincinnati Bengals"), 8, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-27 13:00:00), 
@@ -176,8 +160,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), 8, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-27 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 8, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-27 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Miami Dolphins"), 8, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-28 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), 9, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-10-31 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Jacksonville Jaguars"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), 9, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-03 09:30:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), 9, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-03 13:00:00), 
@@ -192,8 +174,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 9, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-03 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), 9, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-03 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), 9, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-04 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), 10, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-07 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tampa Bay Buccaneers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 10, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-10 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), 10, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-10 13:00:00), 
@@ -207,8 +187,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), 10, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-10 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), 10, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-10 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Seattle Seahawks"), 10, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-11 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), 11, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-14 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), 11, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-17 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Miami Dolphins"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), 11, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-17 13:00:00), 
@@ -223,8 +201,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), 11, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-17 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), 11, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-17 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), 11, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-18 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), 12, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-21 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), 12, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-24 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Denver Broncos"), 12, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-24 13:00:00), 
@@ -239,8 +215,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), 12, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-24 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 12, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-24 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), 12, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-25 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Detroit Lions"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), 13, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-28 12:30:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), 13, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-28 16:30:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), 13, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-11-28 20:20:00), 
@@ -257,8 +231,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), 13, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-01 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), 13, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-01 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Seattle Seahawks"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), 13, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-02 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), 14, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-05 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), 14, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-08 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), 14, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-08 13:00:00), 
@@ -275,8 +247,6 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tennessee Titans"), 14, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-08 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Seattle Seahawks"), 14, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-08 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), 14, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-09 20:15:00), 
-
-
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Jets"), 15, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-12 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), 15, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-15 13:00:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), 15, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-15 13:00:00), 
@@ -293,40 +263,36 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), 15, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-15 16:25:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), 15, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-15 20:20:00), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), 15, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-16 20:15:00), 
-
-
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Miami Dolphins"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cincinnati Bengals"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Denver Broncos"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Detroit Lions"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tampa Bay Buccaneers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Jacksonville Jaguars"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tennessee Titans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Washington Redskins"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Jets"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Seattle Seahawks"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 16:25:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 16:25:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 20:20:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-23 20:15:00), 
-
-
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tampa Bay Buccaneers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cincinnati Bengals"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Detroit Lions"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Jacksonville Jaguars"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Miami Dolphins"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Jets"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tennessee Titans"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Washington Redskins"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 16:25:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Denver Broncos"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 16:25:00), 
-((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Seattle Seahawks"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 16:25:00);
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Miami Dolphins"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cincinnati Bengals"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Denver Broncos"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Detroit Lions"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tampa Bay Buccaneers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Jacksonville Jaguars"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tennessee Titans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Washington Redskins"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Jets"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Seattle Seahawks"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 16:25:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 16:25:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-22 20:20:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 16, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-23 20:15:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tampa Bay Buccaneers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Atlanta Falcons"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Minnesota Vikings"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Chicago Bears"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cincinnati Bengals"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Cleveland Browns"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Detroit Lions"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Green Bay Packers"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Jacksonville Jaguars"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Indianapolis Colts"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Kansas City Chiefs"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Chargers"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New England Patriots"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Miami Dolphins"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Carolina Panthers"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New Orleans Saints"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Buffalo Bills"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Jets"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "New York Giants"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Philadelphia Eagles"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Baltimore Ravens"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Pittsburgh Steelers"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Houston Texans"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Tennessee Titans"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Dallas Cowboys"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Washington Redskins"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 13:00:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Los Angeles Rams"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Arizona Cardinals"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 16:25:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Denver Broncos"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Oakland Raiders"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 16:25:00), 
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "Seattle Seahawks"), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = "San Francisco 49ers"), 17, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), 2019-12-29 16:25:00);
 
