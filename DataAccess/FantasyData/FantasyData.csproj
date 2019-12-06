@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="DataDelegates\" />
-    <Folder Include="Sql\" />
     <Folder Include="Tables\" />
   </ItemGroup>
 

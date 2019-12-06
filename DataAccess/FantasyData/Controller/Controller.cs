@@ -8,7 +8,35 @@ namespace FantasyData.Controller
     class Controller
     {
         public Models.Player.PlayerInfo[] player_infos = new Models.Player.PlayerInfo[532];
+
+        public List<Player.PlayerInfo> QuarterBacks = new List<Player.PlayerInfo>(100);
+        public List<Player.PlayerInfo> RunningBacks = new List<Player.PlayerInfo>(100);
+        public List<Player.PlayerInfo> TightEnds = new List<Player.PlayerInfo>(75);
+        public List<Player.PlayerInfo> WideReceivers  = new List<Player.PlayerInfo>(200);
         
+        public void SortPlayerInfo()
+        {
+            foreach(Player.PlayerInfo p in player_infos)
+            {
+                switch(p.Position)
+                {
+                    case Position.QB:
+                        QuarterBacks.Add(p);
+                        break;
+                    case Position.RB:
+                        RunningBacks.Add(p);
+                        break;
+                    case Position.WR:
+                        WideReceivers.Add(p);
+                        break;
+                    case Position.TE:
+                        TightEnds.Add(p);
+                        break;
+
+                }
+            }
+            
+        }
         public void fillArray(string filepath)
         {
             StreamReader reader = new StreamReader(filepath);
@@ -18,20 +46,20 @@ namespace FantasyData.Controller
             {
                 string raw_player_info = reader.ReadLine();
                 string[] raw_player_info_split = raw_player_info.Split('|');
-                Player.QBRWTE.Position position = Player.QBRWTE.Position.QB;
+                Position position = Position.QB;
                 switch(raw_player_info_split[5])
                 {
                     case "QB":
-                        position = Player.QBRWTE.Position.QB;
+                        position = Position.QB;
                         break;
                     case "RB":
-                        position = Player.QBRWTE.Position.RB;
+                        position = Position.RB;
                         break;
                     case "WR:":
-                        position = Player.QBRWTE.Position.WR;
+                        position = Position.WR;
                         break;
                     case "TE":
-                        position = Player.QBRWTE.Position.TE;
+                        position = Position.TE;
                         break;
                 }
 
@@ -55,6 +83,113 @@ namespace FantasyData.Controller
         public void InsertQB(Player p)
         {
  //           sql =
+        }
+
+        public void QuarterBackList(string file)
+        {
+            using(StreamReader sr = new StreamReader(file))
+            {
+                sr.ReadLine();
+                for(int i = 0; i < 100; i++)
+                {
+                    for(int k = 0; k < 100; i++)
+                    {
+                        Player.QBRWTE p = new Player.QBRWTE();
+                        string line = sr.ReadLine();
+                        string[] pLine = line.Split('|');
+                        p.PassYard = pLine[0];
+                        p.RushYard = pLine[1];
+                        p.ReceivingYards = pLine[2];
+                        p.Receptions = pLine[3];
+                        p.Touchdowns = pLine[4];
+                        p.Interceptions = pLine[5];
+                        p.Fumbles = pLine[6];
+                        QuarterBacks[k].Stats.Add(p);
+                                          
+                    }
+                }
+            }
+        }
+        
+        public void RunningBackList( string file)
+        {
+        
+            using(StreamReader sr = new StreamReader(file))
+            {
+                sr.ReadLine();
+                for(int i = 0; i < 100; i++)
+                {
+                    for(int k = 0; k < 100; i++)
+                    {
+                        Player.QBRWTE p = new Player.QBRWTE();
+                        string line = sr.ReadLine();
+                        string[] pLine = line.Split('|');
+                        p.PassYard = pLine[0];
+                        p.RushYard = pLine[1];
+                        p.ReceivingYards = pLine[2];
+                        p.Receptions = pLine[3];
+                        p.Touchdowns = pLine[4];
+                        p.Interceptions = pLine[5];
+                        p.Fumbles = pLine[6];
+                        RunningBacks[k].Stats.Add(p);
+                                           
+                    }
+                }
+            }
+        }
+
+         public void TightEndsList(string file)
+        {
+        
+            using(StreamReader sr = new StreamReader(file))
+            {
+                sr.ReadLine();
+                for(int i = 0; i < 75; i++)
+                {
+                    for(int k = 0; k < 75; i++)
+                    {
+                        Player.QBRWTE p = new Player.QBRWTE();
+                        string line = sr.ReadLine();
+                        string[] pLine = line.Split('|');
+                        p.PassYard = pLine[0];
+                        p.RushYard = pLine[1];
+                        p.ReceivingYards = pLine[2];
+                        p.Receptions = pLine[3];
+                        p.Touchdowns = pLine[4];
+                        p.Interceptions = pLine[5];
+                        p.Fumbles = pLine[6];
+                        TightEnds[k].Stats.Add(p);
+                                           
+                    }
+                }
+            }
+        }
+
+        public void WideReceiversList(string file)
+        {
+        
+            using(StreamReader sr = new StreamReader(file))
+            {
+                sr.ReadLine();
+                for(int i = 0; i < 200; i++)
+                {
+                    for(int k = 0; k < 200; i++)
+                    {
+                        Player.QBRWTE p = new Player.QBRWTE();
+                        string line = sr.ReadLine();
+                        string[] pLine = line.Split('|');
+                        p.PassYard = pLine[0];
+                        p.RushYard = pLine[1];
+                        p.ReceivingYards = pLine[2];
+                        p.Receptions = pLine[3];
+                        p.Touchdowns = pLine[4];
+                        p.Interceptions = pLine[5];
+                        p.Fumbles = pLine[6];
+                        WideReceivers[k].Stats.Add(p);
+                                           
+                    }
+                }
+            }
         }
 
     }
