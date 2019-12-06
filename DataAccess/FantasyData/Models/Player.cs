@@ -34,8 +34,7 @@ namespace FantasyData.Models
 
         public class QBRWTE
         {
-            public string PlayerStatsID { get; set; }
-            public string PlayerID { get; set; }
+            
             public string PassYard { get; set; }
             public string RushYard { get; set; }
             public string ReceivingYards { get; set; }
@@ -45,7 +44,7 @@ namespace FantasyData.Models
             public string Fumbles { get; set; }
             public string GameID { get; set; }
             public string ByeWeek { get; set; }
-            public enum Position { QB, RB, WR, TE}
+            
         }
 
         public class TeamPlayer
@@ -65,7 +64,8 @@ namespace FantasyData.Models
             public int Weight { get; set; }
             public int YearsPro { get; set; }
             public DateTime BirthDate { get; set; }
-            public QBRWTE.Position Position { get; set; }
+            public enum Position { QB, RB, WR, TE}
+            public List<QBRWTE> Stats {get; set;}
         }
     }
 }
