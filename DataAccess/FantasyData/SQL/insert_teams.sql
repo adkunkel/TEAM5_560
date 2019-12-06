@@ -1,4 +1,34 @@
-USING NFL
-GO
-
-INSERT NFL.
+INSERT NFL.Teams(TeamName)
+VALUES
+	(N'Arizona Cardinals'),
+	(N'Atlanta Falcons'),
+	(N'Baltimore Ravens'),
+	(N'Buffalo Bills'),
+	(N'Carolina Panthers'),
+	(N'Cincinnati Bengals'),
+	(N'Chicago Bears'),
+	(N'Cleveland Browns'),
+	(N'Dallas Cowboys'),
+	(N'Denver Broncos'),
+	(N'Detroit Lions'),
+	(N'Green Bay Packers'),
+	(N'Houston Texans'),
+	(N'Indianapolis Colts'),
+	(N'Jacksonville Jaguars'),
+	(N'Kansas City Chiefs'),
+	(N'Los Angeles Chargers'),
+	(N'Los Angeles Rams'),
+	(N'Miami Dolphins'),
+	(N'Minnesota Vikings'),
+	(N'New England Patriots'),
+	(N'New Orleans Saints'),
+	(N'New York Giants'),
+	(N'New York Jets'),
+	(N'Oakland Raiders'),
+	(N'Philadelphia Eagles'),
+	(N'Pittsburgh Steelers'),
+	(N'San Francisco 49ers'),
+	(N'Seattle Seahawks'),
+	(N'Tampa Bay Buccaneers'),
+	(N'Tennessee Titans'),
+	(N'Washington Redskins')
