@@ -1,0 +1,1 @@
+INSERT Players.DefenseStats(PlayerID, PassYardsAllowed, RushYardsAllowed, TouchdownsAllowed, Touchdowns, Safeties, Interceptions, Fumbles, TeamGameID, ByeWeek)

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FantasyData.Models
+namespace FantasyData.Api
 {
-    class Team
+    class ApiConn
     {
     }
 }

@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FantasyData", "FantasyData\FantasyData.csproj", "{9B61879E-F965-481B-A207-5B6DADA44869}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{E807124F-54EC-403C-97EB-199C45AF1588}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B61879E-F965-481B-A207-5B6DADA44869} = {9B61879E-F965-481B-A207-5B6DADA44869}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

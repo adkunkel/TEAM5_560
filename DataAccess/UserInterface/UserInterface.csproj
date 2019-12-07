@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DatabaseConnection.xaml.cs">
+      <DependentUpon>DatabaseConnection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InsertPlayer.xaml.cs">
+      <DependentUpon>InsertPlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NonReportQuery.xaml.cs">
       <DependentUpon>NonReportQuery.xaml</DependentUpon>
     </Compile>
@@ -68,7 +74,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DatabaseConnection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InitialSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InsertPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +142,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FantasyData\FantasyData.csproj">
+      <Project>{9b61879e-f965-481b-a207-5b6dada44869}</Project>
+      <Name>FantasyData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

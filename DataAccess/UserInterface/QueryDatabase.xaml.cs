@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace UserInterface
 {
@@ -20,9 +21,11 @@ namespace UserInterface
     /// </summary>
     public partial class QueryDatabase : Page
     {
-        public QueryDatabase()
+        private SqlConnection connection;
+        public QueryDatabase(SqlConnection sqlConnection)
         {
             InitializeComponent();
+            connection = sqlConnection;
         }
         /// <summary>
         /// Navigates to the ReportQuery page.
@@ -31,7 +34,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void ReportQueryButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new ReportQuery());
+            NavigationService.Navigate(new ReportQuery(connection));
         }
         /// <summary>
         /// Navigates to the NonReportQuery page.
@@ -40,7 +43,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void NonReportQueryButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new NonReportQuery());
+            NavigationService.Navigate(new NonReportQuery(connection));
         }
         /// <summary>
         /// Navigates to the InitialSelection page.
@@ -49,7 +52,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void HomeButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new InitialSelection());
+            NavigationService.Navigate(new InitialSelection(connection));
         }
     }
 }

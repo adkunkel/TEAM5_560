@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+
 
 namespace UserInterface
 {
@@ -20,9 +22,11 @@ namespace UserInterface
     /// </summary>
     public partial class ReportQuery : Page
     {
-        public ReportQuery()
+        private SqlConnection connection;
+        public ReportQuery(SqlConnection sqlConnection)
         {
             InitializeComponent();
+            connection = sqlConnection;
         }
         /// <summary>
         /// Populates the listbox with information from the given query.
@@ -65,9 +69,9 @@ namespace UserInterface
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void HomeButton(object sender, EventArgs args)
+        private void BackButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new InitialSelection());
+            NavigationService.Navigate(new QueryDatabase(connection));
         }
     }
 }

@@ -17,9 +17,9 @@ namespace DataAccess
             ProcedureName = procedureName;
         }
 
-        public virtual void PrepareCommand(SqlCommand command)
+      /*  public virtual void PrepareCommand(SqlCommand command)
         {
             command.CommandType = CommandType.StoredProcedure;
-        }
+        }*/
     }
 }
