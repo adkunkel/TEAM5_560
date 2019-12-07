@@ -42,8 +42,8 @@
             <Button Grid.Row="2" Grid.Column="1" FontSize="24" Margin="5" Click="SixButton">
                 6
             </Button>
-            <Button Grid.Row="3" Grid.ColumnSpan="2" FontSize="24" Margin="5" Click="HomeButton">
-                Main Window
+            <Button Grid.Row="3" Grid.ColumnSpan="2" FontSize="24" Margin="5" Click="BackButton">
+                Query Database
             </Button>
         </Grid>
         <ListBox Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>

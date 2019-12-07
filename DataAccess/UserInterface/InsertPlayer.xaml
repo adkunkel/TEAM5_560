@@ -10,8 +10,8 @@
 
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,6 +19,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="AntiqueWhite">
             <Grid.RowDefinitions>
+                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -40,13 +41,54 @@
             <Label Grid.Row="3" Grid.Column="0" FontSize="36" VerticalAlignment="Center">
                 Position
             </Label>
-            <TextBox Name="PlayerName" FontSize="36" Grid.Row="0" Grid.Column="1" TextAlignment="Center" Margin="10"/>
-
+            <Label Grid.Row="4" Grid.Column="0" FontSize="36" VerticalAlignment="Center">
+                Team
+            </Label>
+            <TextBox Name="PlayerName" FontSize="36" Grid.Row="0" Grid.Column="1" 
+                     TextAlignment="Center" Margin="10" MaxLength="20"/>
+            <TextBox Name="Height" FontSize="36" Grid.Row="1" Grid.Column="1" 
+                     TextAlignment="Center" Margin="10" MaxLength="3"/>
+            <TextBox Name="Weight" FontSize="36" Grid.Row="2" Grid.Column="1" 
+                     TextAlignment="Center" Margin="10" MaxLength="3"/>
             <ComboBox Name="Position" FontSize="32" Grid.Row="3" Grid.Column="1" Margin="10">
-                <ComboBoxItem Content="Quarterback"/>
-                <ComboBoxItem Content="Running Back"/>
-                <ComboBoxItem Content="Wide Receiver"/>
-                <ComboBoxItem Content="Tight End"/>
+                <ComboBoxItem Content="QB"/>
+                <ComboBoxItem Content="RB"/>
+                <ComboBoxItem Content="WR"/>
+                <ComboBoxItem Content="TE"/>
+            </ComboBox>
+            <ComboBox Name="Team" FontSize="32" Grid.Row="4" Grid.Column="1" Margin="10">
+                <ComboBoxItem Content="Arizona Cardinals"/>
+                <ComboBoxItem Content="Atlanta Falcons"/>
+                <ComboBoxItem Content="Baltimore Ravens"/>
+                <ComboBoxItem Content="Buffalo Bills"/>
+                <ComboBoxItem Content="Carolina Panthers"/>
+                <ComboBoxItem Content="Chicago Bears"/>
+                <ComboBoxItem Content="Cincinnati Bengals"/>
+                <ComboBoxItem Content="Cleveland Browns"/>
+                <ComboBoxItem Content="Dallas Cowboys"/>
+                <ComboBoxItem Content="Denver Broncos"/>
+                <ComboBoxItem Content="Detroit Lions"/>
+                <ComboBoxItem Content="Green Bay Packers"/>
+                <ComboBoxItem Content="Houston Texans"/>
+                <ComboBoxItem Content="Indianapolis Colts"/>
+                <ComboBoxItem Content="Jacksonville Jaguars"/>
+                <ComboBoxItem Content="Kansas City Chiefs"/>
+                <ComboBoxItem Content="Los Angeles Chargers"/>
+                <ComboBoxItem Content="Los Angeles Rams"/>
+                <ComboBoxItem Content="Miami Dolphins"/>
+                <ComboBoxItem Content="Minnesota Vikings"/>
+                <ComboBoxItem Content="New England Patriots"/>
+                <ComboBoxItem Content="New Orleans Saints"/>
+                <ComboBoxItem Content="New York Giants"/>
+                <ComboBoxItem Content="New York Jets"/>
+                <ComboBoxItem Content="Oakland Raiders"/>
+                <ComboBoxItem Content="Philadelphia Eagles"/>
+                <ComboBoxItem Content="Pittsburg Steelers"/>
+                <ComboBoxItem Content="San Francisco 49ers"/>
+                <ComboBoxItem Content="Seattle Seahawks"/>
+                <ComboBoxItem Content="Tampa Bay Buccaneers"/>
+                <ComboBoxItem Content="Tennessee Titans"/>
+                <ComboBoxItem Content="Washington Redskins"/>
             </ComboBox>
         </Grid>
         <Button Grid.Row="1" Grid.Column="0" FontSize="48" Margin="10" Click="CancelButton">
