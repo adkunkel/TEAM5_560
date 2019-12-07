@@ -39,8 +39,8 @@ namespace FantasyData.Controller
 
                 }
             }
-            
         }
+
         public void fillArray(string filepath)
         {
             StreamReader reader = new StreamReader(filepath);
@@ -78,15 +78,6 @@ namespace FantasyData.Controller
                 player_infos[i] = player_info;
                 i++;
             }
-        }
-
-        /// <summary>
-        /// You smell bad
-        /// </summary>
-        /// <param name="p"></param>
-        public void InsertQB(Player p)
-        {
- //           sql =
         }
 
         public void QuarterBackList(string file)
@@ -226,7 +217,12 @@ namespace FantasyData.Controller
             }
         }
 
-        
-
+        public void playerDataToInsert()
+        {
+            foreach(Player.PlayerInfo p in player_infos)
+            {
+                
+            }
+        }
     }
 }

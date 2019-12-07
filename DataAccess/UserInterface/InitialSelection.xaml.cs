@@ -58,6 +58,7 @@ namespace UserInterface
                     command = new SqlCommand(sql, connection);
                     adapter.InsertCommand = new SqlCommand(sql, connection);
                     adapter.InsertCommand.ExecuteNonQuery();
+                    
                     //MessageBox.Show(sql);
                     command.Dispose();
                 }
