@@ -1442,7 +1442,7 @@ VALUES
 	((SELECT TP.PlayerID FROM Players.TeamPlayer TP WHERE TP.[Name] = 'Kareem Hobbs'), N'Kareem Hobbs', N'Active', 91, 450, 17, '1978-10-22 03:02:41', N'K'),
 	((SELECT TP.PlayerID FROM Players.TeamPlayer TP WHERE TP.[Name] = 'Jakeem Russell'), N'Jakeem Russell', N'Active', 76, 402, 22, '1993-04-15 01:38:18', N'K'),
 	((SELECT TP.PlayerID FROM Players.TeamPlayer TP WHERE TP.[Name] = 'Colt Doyle'), N'Colt Doyle', N'Active', 88, 381, 5, '1991-04-19 06:05:28', N'K');
-
+/**
 INSERT Players.KickerStats(PlayerID, XPMade, XPMissed, FGGD, FGNG, TeamGameID, ByeWeek)
 VALUES
 	(SELECT TP.PlayerID, 5, 4, 0, 1, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 
@@ -9749,3 +9749,4 @@ VALUES
 	(SELECT TP.PlayerID, 0, 0, 201, 25, 3, 0, 0, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 
 	(SELECT TP.PlayerID, 0, 0, 144, 18, 2, 0, 0, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 
 	(SELECT TP.PlayerID, 0, 0, 227, 28, 4, 0, 0, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID);
+	**/
