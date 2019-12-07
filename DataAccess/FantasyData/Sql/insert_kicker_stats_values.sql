@@ -1,10 +1,5 @@
 INSERT Players.KickerStats(PlayerID, XPMade, XPMissed, FGGD, FGNG, TeamGameID, ByeWeek)
 VALUES
-	(SELECT TP.PlayerID, 5, 4, 0, 1, TG.GameID, T.ByeWeek 
-		FROM Players.TeamPlayer TP 
-		RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID 
-		LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 
-		
 	(SELECT TP.PlayerID, 5, 4, 1, 1, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 
 	(SELECT TP.PlayerID, 1, 2, 2, 2, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 
 	(SELECT TP.PlayerID, 1, 6, 6, 6, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 
