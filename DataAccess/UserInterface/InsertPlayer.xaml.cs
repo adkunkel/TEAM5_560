@@ -37,17 +37,31 @@ namespace UserInterface
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
-                /*
-                SqlCommand command;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                String sql;
-                sql = $"INSERT INTO Clubs.Club(Name, Purpose) VALUES('Demo', 'The Demo is Inserting Correctly')";
-                command = new SqlCommand(sql, connection);
-                adapter.InsertCommand = new SqlCommand(sql, connection);
-                adapter.InsertCommand.ExecuteNonQuery();
-                command.Dispose();
-                MessageBox.Show("Insert Successful");
-                NavigationService.Navigate(new AlterDatabase(connection));*/
+                try
+                {
+                    string name = PlayerName.Text;
+                    int height = Convert.ToInt32(Height.Text);
+                    int weight = Convert.ToInt32(Weight.Text);
+                    string position = Position.SelectionBoxItem.ToString();
+                    string team = Team.SelectionBoxItem.ToString();
+                    
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    String sql;
+                    sql = $"INSERT Players.TeamPlayer(TeamID, Name) VALUES ((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = '{team}'), N'{name}')" +
+                        $"INSERT Players.PlayerInfo(PlayerID, [Name], [Status], Height, [Weight], YearsPro, Position) " +
+                        $"VALUES ((SELECT TP.PlayerID FROM Players.TeamPlayer TP WHERE TP.[Name] = '{name}'), N'{name}', N'Active', {height}, {weight}, 1, N'QB')";
+                    command = new SqlCommand(sql, connection);
+                    adapter.InsertCommand = new SqlCommand(sql, connection);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Dispose();
+                    MessageBox.Show("Insert Successful");
+                    NavigationService.Navigate(new AlterDatabase(connection));
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid Input");
+                }
             }
             else
             {

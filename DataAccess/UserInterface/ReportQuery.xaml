@@ -33,8 +33,8 @@
             <Button Grid.Row="3" FontSize="24" Margin="5" Click="YardageButton">
                 Yardage Leaders
             </Button>
-            <Button Grid.Row="4" FontSize="24" Margin="5" Click="HomeButton">
-                Main Window
+            <Button Grid.Row="4" FontSize="24" Margin="5" Click="BackButton">
+                Query Selection
             </Button>
         </Grid>
         <ListBox Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
