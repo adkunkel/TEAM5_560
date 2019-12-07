@@ -54,12 +54,6 @@ namespace UserInterface
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     String sql;
-                    sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\table_create.sql");
-                    command = new SqlCommand(sql, connection);
-                    adapter.InsertCommand = new SqlCommand(sql, connection);
-                    adapter.InsertCommand.ExecuteNonQuery();
-                    //MessageBox.Show(sql);
-                    command.Dispose();
                     sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\initial_setup.sql");
                     command = new SqlCommand(sql, connection);
                     adapter.InsertCommand = new SqlCommand(sql, connection);
@@ -117,7 +111,6 @@ namespace UserInterface
             if (connection.State == System.Data.ConnectionState.Open)
             {
                 connection.Close();
-                MessageBox.Show("Connection Closed");
                 CloseConnection.Visibility = Visibility.Hidden;
                 OpenConnection.Visibility = Visibility.Visible;
             }
@@ -136,7 +129,6 @@ namespace UserInterface
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
-                MessageBox.Show("Connection Opened");
                 CloseConnection.Visibility = Visibility.Visible;
                 OpenConnection.Visibility = Visibility.Hidden;
             }
