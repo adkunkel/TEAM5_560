@@ -38,21 +38,29 @@ namespace UserInterface
             //Create Database Tables
             if (connection.State == System.Data.ConnectionState.Open)
             {
-                SqlCommand command;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                String sql;
-                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\table_create.sql");
-                command = new SqlCommand(sql, connection);
-                adapter.InsertCommand = new SqlCommand(sql, connection);
-                adapter.InsertCommand.ExecuteNonQuery();
-                //MessageBox.Show(sql);
-                command.Dispose();
-                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\insert_teams.sql");
-                command = new SqlCommand(sql, connection);
-                adapter.InsertCommand = new SqlCommand(sql, connection);
-                adapter.InsertCommand.ExecuteNonQuery();
-                //MessageBox.Show(sql);
-                command.Dispose();
+                try
+                {
+                    SqlCommand command;
+                    SqlDataReader dataReader;
+                    String sql;
+                    sql = "SELECT * FROM NFL.Teams";
+                    command = new SqlCommand(sql, connection);
+                    dataReader = command.ExecuteReader();
+                    dataReader.Close();
+                    command.Dispose();
+                }
+                catch
+                {
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    String sql;
+                    sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\initial_setup.sql");
+                    command = new SqlCommand(sql, connection);
+                    adapter.InsertCommand = new SqlCommand(sql, connection);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    //MessageBox.Show(sql);
+                    command.Dispose();
+                }
             }
             else
             {
@@ -103,7 +111,6 @@ namespace UserInterface
             if (connection.State == System.Data.ConnectionState.Open)
             {
                 connection.Close();
-                MessageBox.Show("Connection Closed");
                 CloseConnection.Visibility = Visibility.Hidden;
                 OpenConnection.Visibility = Visibility.Visible;
             }
@@ -122,7 +129,6 @@ namespace UserInterface
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
-                MessageBox.Show("Connection Opened");
                 CloseConnection.Visibility = Visibility.Visible;
                 OpenConnection.Visibility = Visibility.Hidden;
             }

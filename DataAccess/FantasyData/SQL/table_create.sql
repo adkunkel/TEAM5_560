@@ -11,8 +11,6 @@ IF SCHEMA_ID(N'Experts') IS NULL
 	EXEC(N'CREATE SCHEMA [Experts];');
 --GO
 
-
-DROP TABLE IF EXISTS Experts.WeeklyRankings;
 DROP TABLE IF EXISTS Players.PlayerStats;
 DROP TABLE IF EXISTS Players.DefenseStats;
 DROP TABLE IF EXISTS Players.KickerStats;
