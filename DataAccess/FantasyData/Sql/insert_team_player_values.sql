@@ -499,4 +499,4 @@ VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Los Angeles Chargers'), N'Oren Ingram'),
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Los Angeles Rams'), N'Kareem Hobbs'),
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Miami Dolphins'), N'Jakeem Russell'),
-	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Minnesota Vikings'), N'Colt Doyle')
+	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Minnesota Vikings'), N'Colt Doyle');
