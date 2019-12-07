@@ -7,12 +7,16 @@ namespace FantasyData.Controller
 {
     class Controller
     {
+
+        public string[] Teams = { "New England Patriots", "Dallas Cowboys", "San Francisco 49ers", "Seattle Seahawks", "Baltimore Ravens", "Philadelphia Eagles", "Green Bay Packers", "Minnesota Vikings", "Pittsburgh Steelers", "Buffalo Bills", "Chicago Bears", "New Orleans Saints", "OakLand Raiders", "Cleveland Browns", "Kansas City, Chiefs", "New York Giants", "Houston Texans", "Detroit Lions", "Miami Dolphins", "Denver Broncos", "Los Angeles Rams", "Washington, Redskins", "Arizona Cardinals", "Carolina Panthers", "Atlanta Falcons", "New York, Jets", "Cincinnati Bengals", "Tennessee Titans", "Indianapolis Colts", "Los Angles Chargers", "Tampa Bay Buccaneers", "Jacksonville Jaguars" };
+
         public Models.Player.PlayerInfo[] player_infos = new Models.Player.PlayerInfo[532];
 
         public List<Player.PlayerInfo> QuarterBacks = new List<Player.PlayerInfo>(100);
         public List<Player.PlayerInfo> RunningBacks = new List<Player.PlayerInfo>(100);
         public List<Player.PlayerInfo> TightEnds = new List<Player.PlayerInfo>(75);
         public List<Player.PlayerInfo> WideReceivers  = new List<Player.PlayerInfo>(200);
+        public List<Player.PlayerInfo> Defense = new List<Player.PlayerInfo>(32);
         
         public void SortPlayerInfo()
         {
@@ -191,6 +195,38 @@ namespace FantasyData.Controller
                 }
             }
         }
+
+        public void DefenseList(string file)
+        {
+            for (int i = 0; i < 32; i++)
+            {
+                Defense[i].Name = Teams[i];
+            }
+            using (StreamReader sr = new StreamReader(file))
+            {
+                
+                sr.ReadLine();
+                for (int i = 0; i < 32; i++)
+                {
+                    for (int k = 0; k < 32; i++)
+                    {
+                        
+                        Player.Defense p = new Player.Defense();
+                        string line = sr.ReadLine();
+                        string[] pLine = line.Split('|');
+                        p.PassYardsAllowed = pLine[0];
+                        p.RushYardsAllowed = pLine[1];
+                        p.Touchdowns = pLine[2];
+                        p.Safeties = pLine[3];
+                        p.Interceptions = pLine[4];
+                        p.Fumbles = pLine[5];
+                        Defense[k].DefStats.Add(p);
+                    }
+                }
+            }
+        }
+
+        
 
     }
 }
