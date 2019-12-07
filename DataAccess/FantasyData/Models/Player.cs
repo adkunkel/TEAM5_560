@@ -68,5 +68,7 @@ namespace FantasyData.Models
             public Position Position { get; set; }
             public List<QBRWTE> Stats {get; set;}
         }
+
+       
     } 
 }
