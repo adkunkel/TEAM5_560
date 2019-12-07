@@ -67,6 +67,7 @@ namespace FantasyData.Models
             public DateTime BirthDate { get; set; }
             public Position Position { get; set; }
             public List<QBRWTE> Stats {get; set;}
+            public List<Defense> DefStats { get; set; }
         }
 
        

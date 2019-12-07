@@ -213,9 +213,9 @@ namespace UserInterface
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void HomeButton(object sender, EventArgs args)
+        private void BackButton(object sender, EventArgs args)
         {
-            NavigationService.Navigate(new InitialSelection(connection));
+            NavigationService.Navigate(new QueryDatabase(connection));
         }
     }
 }
