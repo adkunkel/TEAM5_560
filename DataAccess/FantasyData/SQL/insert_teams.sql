@@ -1,4 +1,4 @@
-INSERT NFL.Teams(TeamName, ByeWeek)
+INSERT NFL.Teams(TeamName, ByeWeek, Record, PointsScored, PointsAllowed)
 VALUES
 	(N'Arizona Cardinals', 12, N'0-0-0', 0, 0),
 	(N'Atlanta Falcons', 9, N'0-0-0', 0, 0),
