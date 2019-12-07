@@ -1,4 +1,4 @@
-INSERT Games.Game(HomeTeamID, VisitorTeamID, [Week], SeasonID, [Date], Result)
+INSERT Games.Game(HomeTeamID, VisitorTeamID, [Week], SeasonID, [Date])
 VALUES
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Chicago Bears'), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Green Bay Packers'), 1, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), '2019-09-05 20:20:00'), 
 	((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Minnesota Vikings'), (SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = 'Atlanta Falcons'), 1, (SELECT S.SeasonID FROM Games.Season S WHERE S.[Year] = 2019), '2019-09-08 13:00:00'), 
