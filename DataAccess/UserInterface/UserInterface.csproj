@@ -70,6 +70,9 @@
     <Compile Include="ReportQuery.xaml.cs">
       <DependentUpon>ReportQuery.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdatePlayer.xaml.cs">
+      <DependentUpon>UpdatePlayer.xaml</DependentUpon>
+    </Compile>
     <Page Include="AlterDatabase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ReportQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdatePlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

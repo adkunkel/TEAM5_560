@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace UserInterface
 {
@@ -44,7 +45,7 @@ namespace UserInterface
         /// <param name="args"></param>
         private void UpdateButton(object sender, EventArgs args)
         {
-            //Navigate to page that allows user to update a player.
+            NavigationService.Navigate(new UpdatePlayer(connection));
         }
         /// <summary>
         /// Reload the database.
@@ -53,7 +54,21 @@ namespace UserInterface
         /// <param name="args"></param>
         private void ReloadButton(object sender, EventArgs args)
         {
-            //Reload the database using the internet to provide the data.
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                String sql;
+                sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\initial_setup.sql");
+                command = new SqlCommand(sql, connection);
+                adapter.InsertCommand = new SqlCommand(sql, connection);
+                adapter.InsertCommand.ExecuteNonQuery();
+                command.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Connect to the Database First");
+            }
         }
         /// <summary>
         /// Navigates to the InitialSelection page.
