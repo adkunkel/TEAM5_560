@@ -10,7 +10,7 @@ namespace FantasyData.Controller
 
         public string[] Teams = { "New England Patriots", "Dallas Cowboys", "San Francisco 49ers", "Seattle Seahawks", "Baltimore Ravens", "Philadelphia Eagles", "Green Bay Packers", "Minnesota Vikings", "Pittsburgh Steelers", "Buffalo Bills", "Chicago Bears", "New Orleans Saints", "OakLand Raiders", "Cleveland Browns", "Kansas City, Chiefs", "New York Giants", "Houston Texans", "Detroit Lions", "Miami Dolphins", "Denver Broncos", "Los Angeles Rams", "Washington, Redskins", "Arizona Cardinals", "Carolina Panthers", "Atlanta Falcons", "New York, Jets", "Cincinnati Bengals", "Tennessee Titans", "Indianapolis Colts", "Los Angles Chargers", "Tampa Bay Buccaneers", "Jacksonville Jaguars" };
 
-        public Models.Player.PlayerInfo[] player_infos = new Models.Player.PlayerInfo[500];
+        public List<Player.PlayerInfo> player_infos = new List<Player.PlayerInfo>();
 
         public List<Player.PlayerInfo> QuarterBacks = new List<Player.PlayerInfo>(75);
         public List<Player.PlayerInfo> RunningBacks = new List<Player.PlayerInfo>(100);
@@ -51,7 +51,7 @@ namespace FantasyData.Controller
             {
                 string raw_player_info = reader.ReadLine();
                 string[] raw_player_info_split = raw_player_info.Split('|');
-                Position position = Position.QB;
+                Position position = Position.N;
                 switch(raw_player_info_split[5])
                 {
                     case "QB":
@@ -60,24 +60,29 @@ namespace FantasyData.Controller
                     case "RB":
                         position = Position.RB;
                         break;
-                    case "WR:":
+                    case "WR":
                         position = Position.WR;
                         break;
                     case "TE":
                         position = Position.TE;
                         break;
+                    default:
+                        position = Position.N;
+                        break;
                 }
+                if (position != Position.N)
+                {
+                    Player.PlayerInfo player_info = new Player.PlayerInfo();
+                    player_info.Name = raw_player_info_split[0];
+                    player_info.Height = Convert.ToInt32(raw_player_info_split[1]);
+                    player_info.Weight = Convert.ToInt32(raw_player_info_split[2]);
+                    player_info.YearsPro = Convert.ToInt32(raw_player_info_split[3]);
+                    player_info.BirthDate = Convert.ToDateTime(raw_player_info_split[4]);
+                    player_info.Position = position;
 
-                Player.PlayerInfo player_info = new Player.PlayerInfo();
-                player_info.Name = raw_player_info_split[0];
-                player_info.Height = Convert.ToInt32(raw_player_info_split[1]);
-                player_info.Weight = Convert.ToInt32(raw_player_info_split[2]);
-                player_info.YearsPro = Convert.ToInt32(raw_player_info_split[3]);
-                player_info.BirthDate = Convert.ToDateTime(raw_player_info_split[4]);
-                player_info.Position = position;
-                
-                player_infos[i] = player_info;
-                i++;
+                    player_infos.Add(player_info);
+                    i++;
+                }
             }
         }
 
@@ -105,12 +110,13 @@ namespace FantasyData.Controller
                         Player.Stats.Add(p);                         
                     }
                 }
+                Console.WriteLine("The Number of QB is " + QuarterBacks.Count);
+                Console.WriteLine("The Number of QB Stats is " + QuarterBacks[0].Stats.Count);
             }
         }
         
         public void RunningBackList(string file)
         {
-        
             using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
@@ -128,10 +134,11 @@ namespace FantasyData.Controller
                         p.Touchdowns = pLine[4];
                         p.Interceptions = pLine[5];
                         p.Fumbles = pLine[6];
-                        Player.Stats.Add(p);
-                                           
+                        Player.Stats.Add(p);                        
                     }
                 }
+                Console.WriteLine("The Number of RB is " + RunningBacks.Count);
+                Console.WriteLine("The Number of RB Stats is " + RunningBacks[0].Stats.Count);
             }
         }
 
@@ -158,12 +165,13 @@ namespace FantasyData.Controller
                         Player.Stats.Add(p);
                     }
                 }
+                Console.WriteLine("The Number of TE is " + TightEnds.Count);
+                Console.WriteLine("The Number of TE Stats is " + TightEnds[0].Stats.Count);
             }
         }
 
         public void WideReceiversList(string file)
         {
-        
             using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
@@ -181,10 +189,11 @@ namespace FantasyData.Controller
                         p.Touchdowns = pLine[4];
                         p.Interceptions = pLine[5];
                         p.Fumbles = pLine[6];
-                        Player.Stats.Add(p);
-                                           
+                        Player.Stats.Add(p);                    
                     }
                 }
+                Console.WriteLine("The Number of WR is " + WideReceivers.Count);
+                Console.WriteLine("The Number of WR Stats is " + WideReceivers[0].Stats.Count);
             }
         }
 
