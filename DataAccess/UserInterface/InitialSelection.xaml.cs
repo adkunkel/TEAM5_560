@@ -260,10 +260,9 @@ namespace UserInterface
                     command.Dispose();
                 }
             }
-            //UNIQUE KEY CONSTRAINT ERROR
+            int k = 1;
             foreach (Player.PlayerInfo DEF in controller.Defense)
             {
-                int k = 1;
                 for (int i = 0; i < DEF.DefStats.Count; i++)
                 {
                     Player.Defense p = DEF.DefStats[i];
