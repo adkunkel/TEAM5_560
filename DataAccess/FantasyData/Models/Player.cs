@@ -68,6 +68,7 @@ namespace FantasyData.Models
             public Position Position { get; set; }
             public List<QBRWTE> Stats {get; set;}
             public List<Defense> DefStats { get; set; }
+            public List<Kicker> KickerStats { get; set; }
         }
 
        
