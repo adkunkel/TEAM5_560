@@ -1,4 +1,4 @@
-INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, RecievingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)
+INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)
 VALUES
 	(SELECT TP.PlayerID, 200, 139, 25, 1, 3, 0, 1, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 
 	(SELECT TP.PlayerID, 415, 145, 0, 0, 6, 1, 0, TG.GameID, T.ByeWeek FROM Players.TeamPlayer TP RIGHT JOIN Games.Teams T ON TP.TeamID = T.TeamID LEFT JOIN Games.TeamGame TG ON T.GameID = TG.GameID), 

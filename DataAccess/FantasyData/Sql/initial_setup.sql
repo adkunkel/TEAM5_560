@@ -116,7 +116,7 @@ CREATE TABLE Players.PlayerStats
 	PlayerID INT NOT NULL FOREIGN KEY REFERENCES Players.TeamPlayer(PlayerID),
 	PassYards INT NOT NULL DEFAULT(0),
 	RushYards INT NOT NULL DEFAULT(0),
-	RecievingYards INT NOT NULL DEFAULT(0),
+	ReceivingYards INT NOT NULL DEFAULT(0),
 	Receptions INT NOT NULL DEFAULT(0),
 	Touchdowns INT NOT NULL DEFAULT(0),
 	Interceptions INT NOT NULL DEFAULT(0),

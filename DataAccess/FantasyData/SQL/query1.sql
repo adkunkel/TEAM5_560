@@ -1,5 +1,7 @@
-/**Select ks.playerID
-From Players.KickerStats ks
-Where ks.XPMissed < 5;
-**/
-SELECT * FROM NFL.Teams
+--Query 1
+--Displays QBs ordered by touchdowns, pass yards, and name.
+SELECT *
+FROM Players.PlayerInfo AS Player
+	INNER JOIN Players.PlayerStats AS PS ON PS.PlayerID = Player.PlayerID
+WHERE Player.Position = 'QB'
+ORDER BY PS.Touchdowns DESC, PS.PassYards DESC, Player.Name ASC
