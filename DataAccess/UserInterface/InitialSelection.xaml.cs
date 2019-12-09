@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using FantasyData.Models;
 using System.IO;
+using FantasyData.Controller;
 
 namespace UserInterface
 {
@@ -58,7 +59,7 @@ namespace UserInterface
                     command = new SqlCommand(sql, connection);
                     adapter.InsertCommand = new SqlCommand(sql, connection);
                     adapter.InsertCommand.ExecuteNonQuery();
-                    
+                    InsertPlayerData();
                     //MessageBox.Show(sql);
                     command.Dispose();
                 }
@@ -138,5 +139,100 @@ namespace UserInterface
                 MessageBox.Show("Connection Already Open");
             }
         }
+
+
+
+
+
+
+        /// <summary>
+        /// Inserts the player stats.
+        /// </summary>
+        public void InsertPlayerData()
+        {
+            Controller controller = new Controller();
+            controller.FillPlayerInfoArray(@"..\\..\\..\\GeneratedDataPlayerInfo.txt");
+            controller.QuarterBackList(@"..\\..\\..\\GeneratedQBStats.txt");
+            controller.RunningBackList(@"..\\..\\..\\GeneratedDataRBStats.txt");
+            controller.WideReceiversList(@"..\\..\\..\\GeneratedDataWRStats.txt");
+            controller.TightEndsList(@"..\\..\\..\\GeneratedDataTEStats.txt");
+            controller.DefenseList(@"..\\..\\..\\DefensiveStats.txt");
+            foreach (Player.PlayerInfo QB in controller.QuarterBacks)
+            {
+                for (int i = 0; i < QB.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = QB.Stats[i];
+                    string sql = "INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + QB.Name + ", " + p.PassYard + ", " + p.RushYard + ", " + p.ReceivingYards + ", " + p.Receptions + ", " + p.Touchdowns + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    command = new SqlCommand(sql, connection);
+                    adapter.InsertCommand = new SqlCommand(sql, connection);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Dispose();
+                }
+            }
+            foreach (Player.PlayerInfo RB in controller.RunningBacks)
+            {
+                for (int i = 0; i < RB.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = RB.Stats[i];
+                    string sql = "INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + RB.Name + ", " + p.PassYard + ", " + p.RushYard + ", " + p.ReceivingYards + ", " + p.Receptions + ", " + p.Touchdowns + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    command = new SqlCommand(sql, connection);
+                    adapter.InsertCommand = new SqlCommand(sql, connection);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Dispose();
+                }
+            }
+            foreach (Player.PlayerInfo WR in controller.WideReceivers)
+            {
+                for (int i = 0; i < WR.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = WR.Stats[i];
+                    string sql = "INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + WR.Name + ", " + p.PassYard + ", " + p.RushYard + ", " + p.ReceivingYards + ", " + p.Receptions + ", " + p.Touchdowns + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    command = new SqlCommand(sql, connection);
+                    adapter.InsertCommand = new SqlCommand(sql, connection);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Dispose();
+                }
+            }
+            foreach (Player.PlayerInfo TE in controller.TightEnds)
+            {
+                for (int i = 0; i < TE.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = TE.Stats[i];
+                    string sql = "INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + TE.Name + ", " + p.PassYard + ", " + p.RushYard + ", " + p.ReceivingYards + ", " + p.Receptions + ", " + p.Touchdowns + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    command = new SqlCommand(sql, connection);
+                    adapter.InsertCommand = new SqlCommand(sql, connection);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Dispose();
+                }
+            }
+            foreach (Player.PlayerInfo DEF in controller.Defense)
+            {
+                for (int i = 0; i < DEF.DefStats.Count; i++)
+                {
+                    Player.Defense p = DEF.DefStats[i];
+                    string sql = "INSERT Players.DefenseStats(PlayerID, PassYardsAllowed, RushYardsAllowed, TouchdownsAllowed, Safeties, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + DEF.Name + ", " + p.PassYardsAllowed + ", " + p.RushYardsAllowed + ", " + p.Touchdowns + ", " + p.Safeties + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    command = new SqlCommand(sql, connection);
+                    adapter.InsertCommand = new SqlCommand(sql, connection);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Dispose();
+                }
+            }
+        }
+
     }
 }

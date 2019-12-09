@@ -5,7 +5,7 @@ using System.Text;
 namespace FantasyData.Models
 {
     public enum Position { QB, RB, WR, TE }
-    class Player
+    public class Player
     {
         public class Kicker
         {
