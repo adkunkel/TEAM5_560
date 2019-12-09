@@ -16,7 +16,7 @@ namespace FantasyData.Controller
         public List<Player.PlayerInfo> RunningBacks = new List<Player.PlayerInfo>(100);
         public List<Player.PlayerInfo> TightEnds = new List<Player.PlayerInfo>(75);
         public List<Player.PlayerInfo> WideReceivers  = new List<Player.PlayerInfo>(200);
-        public List<Player.PlayerInfo> Kickers = new List<Player.PlayerInfo>(50;)
+        public List<Player.PlayerInfo> Kickers = new List<Player.PlayerInfo>(50);
         public List<Player.PlayerInfo> Defense = new List<Player.PlayerInfo>(32);
         
         public void SortPlayerInfo()
