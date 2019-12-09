@@ -217,11 +217,57 @@ namespace FantasyData.Controller
             }
         }
 
-        public void playerDataToInsert()
+        public void insertPlayerData()
         {
-            foreach(Player.PlayerInfo p in player_infos)
+            foreach (Player.PlayerInfo QB in QuarterBacks)
             {
-                
+                for(int i = 0; i < QB.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = QB.Stats[i];
+                    string sql = "INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + QB.Name + ", " + p.PassYard + ", " + p.RushYard + ", " + p.ReceivingYards + ", " + p.Receptions + ", " + p.Touchdowns + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") "; 
+
+                }
+            }
+            foreach(Player.PlayerInfo RB in RunningBacks)
+            {
+                for (int i = 0; i < RB.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = RB.Stats[i];
+                    string sql = "INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + RB.Name + ", " + p.PassYard + ", " + p.RushYard + ", " + p.ReceivingYards + ", " + p.Receptions + ", " + p.Touchdowns + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+
+                }
+            }
+            foreach (Player.PlayerInfo WR in WideReceivers)
+            {
+                for (int i = 0; i < WR.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = WR.Stats[i];
+                    string sql = "INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + WR.Name + ", " + p.PassYard + ", " + p.RushYard + ", " + p.ReceivingYards + ", " + p.Receptions + ", " + p.Touchdowns + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+
+                }
+            }
+            foreach (Player.PlayerInfo TE in TightEnds)
+            {
+                for (int i = 0; i < TE.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = TE.Stats[i];
+                    string sql = "INSERT Players.PlayerStats(PlayerID, PassYards, RushYards, ReceivingYards, Receptions, Touchdowns, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + TE.Name + ", " + p.PassYard + ", " + p.RushYard + ", " + p.ReceivingYards + ", " + p.Receptions + ", " + p.Touchdowns + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+
+                }
+            }
+            foreach (Player.PlayerInfo DEF in Defense)
+            {
+                for (int i = 0; i < DEF.DefStats.Count; i++)
+                {
+                    Player.Defense p = DEF.DefStats[i];
+                    string sql = "INSERT Players.DefenseStats(PlayerID, PassYardsAllowed, RushYardsAllowed, TouchdownsAllowed, Safeties, Interceptions, Fumbles, TeamGameID, ByeWeek)\n" +
+                        "VALUES (SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = " + DEF.Name + ", " + p.PassYardsAllowed + ", " + p.RushYardsAllowed + ", " + p.Touchdowns + ", " + p.Safeties + ", " + p.Interceptions + ", " + p.Fumbles + ", " + p.GameID + ", " + p.ByeWeek + ") ";
+
+                }
             }
         }
     }
