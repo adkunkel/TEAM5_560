@@ -54,10 +54,11 @@ namespace UserInterface
         /// <param name="args"></param>
         private void ReloadButton(object sender, EventArgs args)
         {
+            /*
             if (connection.State == System.Data.ConnectionState.Open)
             {
                 MessageBox.Show("Nope, Dont Do This");
-                /*
+                
                 SqlCommand command;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 String sql;
@@ -65,11 +66,40 @@ namespace UserInterface
                 command = new SqlCommand(sql, connection);
                 adapter.InsertCommand = new SqlCommand(sql, connection);
                 adapter.InsertCommand.ExecuteNonQuery();
-                command.Dispose();*/
+                command.Dispose();
             }
             else
             {
                 MessageBox.Show("Connect to the Database First");
+            }*/
+
+            if (connection.State == System.Data.ConnectionState.Open)
+            {
+                try
+                {
+                    string Keller = "John Keller ";
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    String sql;
+                    for (int i = 1; i < 500; i++)
+                    {
+                        sql = $"UPDATE Players.PlayerInfo " +
+                            $"SET Name = N'{Keller}{ToRoman(i)}' " +
+                            $"WHERE PlayerID = {i} " +
+                            $"UPDATE Players.TeamPlayer " +
+                            $"SET Name = N'{Keller}{ToRoman(i)}' " +
+                            $"WHERE PlayerID = {i}";
+                        command = new SqlCommand(sql, connection);
+                        adapter.InsertCommand = new SqlCommand(sql, connection);
+                        adapter.InsertCommand.ExecuteNonQuery();
+                        command.Dispose();
+                    }
+                    MessageBox.Show("Update Successful");
+                }
+                catch
+                {
+                    MessageBox.Show("Invalid Input. Player name must match name in the database.");
+                }
             }
         }
         /// <summary>
@@ -82,5 +112,29 @@ namespace UserInterface
             NavigationService.Navigate(new InitialSelection(connection));
         }
 
+
+
+
+
+        //FOR JK
+        public static string ToRoman(int number)
+        {
+            if ((number < 0) || (number > 3999)) throw new ArgumentOutOfRangeException("Value must be between 1 and 3999");
+            if (number < 1) return string.Empty;
+            if (number >= 1000) return "M" + ToRoman(number - 1000);
+            if (number >= 900) return "CM" + ToRoman(number - 900); //EDIT: i've typed 400 instead 900
+            if (number >= 500) return "D" + ToRoman(number - 500);
+            if (number >= 400) return "CD" + ToRoman(number - 400);
+            if (number >= 100) return "C" + ToRoman(number - 100);
+            if (number >= 90) return "XC" + ToRoman(number - 90);
+            if (number >= 50) return "L" + ToRoman(number - 50);
+            if (number >= 40) return "XL" + ToRoman(number - 40);
+            if (number >= 10) return "X" + ToRoman(number - 10);
+            if (number >= 9) return "IX" + ToRoman(number - 9);
+            if (number >= 5) return "V" + ToRoman(number - 5);
+            if (number >= 4) return "IV" + ToRoman(number - 4);
+            if (number >= 1) return "I" + ToRoman(number - 1);
+            throw new ArgumentOutOfRangeException("Value must be between 1 and 3999");
+        }
     }
 }
