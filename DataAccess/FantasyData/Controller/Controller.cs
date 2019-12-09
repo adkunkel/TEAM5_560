@@ -10,9 +10,9 @@ namespace FantasyData.Controller
 
         public string[] Teams = { "New England Patriots", "Dallas Cowboys", "San Francisco 49ers", "Seattle Seahawks", "Baltimore Ravens", "Philadelphia Eagles", "Green Bay Packers", "Minnesota Vikings", "Pittsburgh Steelers", "Buffalo Bills", "Chicago Bears", "New Orleans Saints", "OakLand Raiders", "Cleveland Browns", "Kansas City, Chiefs", "New York Giants", "Houston Texans", "Detroit Lions", "Miami Dolphins", "Denver Broncos", "Los Angeles Rams", "Washington, Redskins", "Arizona Cardinals", "Carolina Panthers", "Atlanta Falcons", "New York, Jets", "Cincinnati Bengals", "Tennessee Titans", "Indianapolis Colts", "Los Angles Chargers", "Tampa Bay Buccaneers", "Jacksonville Jaguars" };
 
-        public Models.Player.PlayerInfo[] player_infos = new Models.Player.PlayerInfo[532];
+        public Models.Player.PlayerInfo[] player_infos = new Models.Player.PlayerInfo[500];
 
-        public List<Player.PlayerInfo> QuarterBacks = new List<Player.PlayerInfo>(100);
+        public List<Player.PlayerInfo> QuarterBacks = new List<Player.PlayerInfo>(75);
         public List<Player.PlayerInfo> RunningBacks = new List<Player.PlayerInfo>(100);
         public List<Player.PlayerInfo> TightEnds = new List<Player.PlayerInfo>(75);
         public List<Player.PlayerInfo> WideReceivers  = new List<Player.PlayerInfo>(200);
@@ -36,7 +36,8 @@ namespace FantasyData.Controller
                     case Position.TE:
                         TightEnds.Add(p);
                         break;
-
+                    default:
+                        break;
                 }
             }
         }
@@ -85,11 +86,13 @@ namespace FantasyData.Controller
             using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
-                for(int i = 0; i < 100; i++)
+                for(int i = 0; i < 16; i++)
                 {
-                    for(int k = 0; k < 100; i++)
+                    foreach(Player.PlayerInfo Player in QuarterBacks)
                     {
+                        
                         Player.QBRWTE p = new Player.QBRWTE();
+                        if (sr.EndOfStream) break;
                         string line = sr.ReadLine();
                         string[] pLine = line.Split('|');
                         p.PassYard = pLine[0];
@@ -99,21 +102,21 @@ namespace FantasyData.Controller
                         p.Touchdowns = pLine[4];
                         p.Interceptions = pLine[5];
                         p.Fumbles = pLine[6];
-                        QuarterBacks[k].Stats.Add(p);                         
+                        Player.Stats.Add(p);                         
                     }
                 }
             }
         }
         
-        public void RunningBackList( string file)
+        public void RunningBackList(string file)
         {
         
             using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
-                for(int i = 0; i < 100; i++)
+                for(int i = 0; i < 16; i++)
                 {
-                    for(int k = 0; k < 100; i++)
+                    foreach (Player.PlayerInfo Player in RunningBacks)
                     {
                         Player.QBRWTE p = new Player.QBRWTE();
                         string line = sr.ReadLine();
@@ -125,7 +128,7 @@ namespace FantasyData.Controller
                         p.Touchdowns = pLine[4];
                         p.Interceptions = pLine[5];
                         p.Fumbles = pLine[6];
-                        RunningBacks[k].Stats.Add(p);
+                        Player.Stats.Add(p);
                                            
                     }
                 }
@@ -138,9 +141,9 @@ namespace FantasyData.Controller
             using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
-                for(int i = 0; i < 75; i++)
+                for(int i = 0; i < 16; i++)
                 {
-                    for(int k = 0; k < 75; i++)
+                    foreach (Player.PlayerInfo Player in TightEnds)
                     {
                         Player.QBRWTE p = new Player.QBRWTE();
                         string line = sr.ReadLine();
@@ -152,8 +155,7 @@ namespace FantasyData.Controller
                         p.Touchdowns = pLine[4];
                         p.Interceptions = pLine[5];
                         p.Fumbles = pLine[6];
-                        TightEnds[k].Stats.Add(p);
-                                           
+                        Player.Stats.Add(p);
                     }
                 }
             }
@@ -165,9 +167,9 @@ namespace FantasyData.Controller
             using(StreamReader sr = new StreamReader(file))
             {
                 sr.ReadLine();
-                for(int i = 0; i < 200; i++)
+                for(int i = 0; i < 16; i++)
                 {
-                    for(int k = 0; k < 200; i++)
+                    foreach (Player.PlayerInfo Player in WideReceivers)
                     {
                         Player.QBRWTE p = new Player.QBRWTE();
                         string line = sr.ReadLine();
@@ -179,7 +181,7 @@ namespace FantasyData.Controller
                         p.Touchdowns = pLine[4];
                         p.Interceptions = pLine[5];
                         p.Fumbles = pLine[6];
-                        WideReceivers[k].Stats.Add(p);
+                        Player.Stats.Add(p);
                                            
                     }
                 }
@@ -190,15 +192,16 @@ namespace FantasyData.Controller
         {
             for (int i = 0; i < 32; i++)
             {
+                Defense.Add(new Player.PlayerInfo());
                 Defense[i].Name = Teams[i];
             }
             using (StreamReader sr = new StreamReader(file))
             {
                 
                 sr.ReadLine();
-                for (int i = 0; i < 32; i++)
+                for (int i = 0; i < 16; i++)
                 {
-                    for (int k = 0; k < 32; i++)
+                    foreach (Player.PlayerInfo Player in Defense)
                     {
                         
                         Player.Defense p = new Player.Defense();
@@ -210,7 +213,7 @@ namespace FantasyData.Controller
                         p.Safeties = pLine[3];
                         p.Interceptions = pLine[4];
                         p.Fumbles = pLine[5];
-                        Defense[k].DefStats.Add(p);
+                        Player.DefStats.Add(p);
                     }
                 }
             }

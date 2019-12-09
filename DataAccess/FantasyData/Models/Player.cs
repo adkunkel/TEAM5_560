@@ -66,9 +66,9 @@ namespace FantasyData.Models
             public int YearsPro { get; set; }
             public DateTime BirthDate { get; set; }
             public Position Position { get; set; }
-            public List<QBRWTE> Stats {get; set;}
-            public List<Defense> DefStats { get; set; }
-            public List<Kicker> KickerStats { get; set; }
+            public List<QBRWTE> Stats { get; set; } = new List<QBRWTE>();
+            public List<Defense> DefStats { get; set; } = new List<Defense>();
+            public List<Kicker> KickerStats { get; set; } = new List<Kicker>();
         }
 
        
