@@ -40,8 +40,8 @@ namespace UserInterface
                 try
                 {
                     string name = PlayerName.Text;
-                    int height = Convert.ToInt32(Height.Text);
-                    int weight = Convert.ToInt32(Weight.Text);
+                    int height = Convert.ToInt32(PlayerHeight.Text);
+                    int weight = Convert.ToInt32(PlayerWeight.Text);
                     string position = Position.SelectionBoxItem.ToString();
                     string team = Team.SelectionBoxItem.ToString();
                     

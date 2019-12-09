@@ -46,9 +46,9 @@
             </Label>
             <TextBox Name="PlayerName" FontSize="36" Grid.Row="0" Grid.Column="1" 
                      TextAlignment="Center" Margin="10" MaxLength="20"/>
-            <TextBox Name="Height" FontSize="36" Grid.Row="1" Grid.Column="1" 
+            <TextBox Name="PlayerHeight" FontSize="36" Grid.Row="1" Grid.Column="1" 
                      TextAlignment="Center" Margin="10" MaxLength="3"/>
-            <TextBox Name="Weight" FontSize="36" Grid.Row="2" Grid.Column="1" 
+            <TextBox Name="PlayerWeight" FontSize="36" Grid.Row="2" Grid.Column="1" 
                      TextAlignment="Center" Margin="10" MaxLength="3"/>
             <ComboBox Name="Position" FontSize="32" Grid.Row="3" Grid.Column="1" Margin="10">
                 <ComboBoxItem Content="QB"/>

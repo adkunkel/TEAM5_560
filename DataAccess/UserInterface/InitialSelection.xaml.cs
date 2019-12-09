@@ -157,8 +157,9 @@ namespace UserInterface
             controller.RunningBackList(@"..\\..\\..\\..\\GeneratedDataRBStats.txt");
             controller.WideReceiversList(@"..\\..\\..\\..\\GeneratedDataWRStats.txt");
             controller.TightEndsList(@"..\\..\\..\\..\\GeneratedDataTEStats.txt");
-            controller.KickerList("@..\\..\\..\\..\\GeneratedDataKickerStats.txt");
+            controller.KickerList(@"..\\..\\..\\..\\GeneratedDataKickerStats.txt");
             controller.DefenseList(@"..\\..\\..\\..\\DefensiveStats.txt");
+
             foreach (Player.PlayerInfo QB in controller.QuarterBacks)
             {
                 for (int i = 0; i < QB.Stats.Count; i++)
@@ -241,10 +242,10 @@ namespace UserInterface
             }
             foreach (Player.PlayerInfo K in controller.Kickers)
             {
-                for (int i = 0; i < K.Stats.Count; i++)
+                for (int i = 0; i < K.KickerStats.Count; i++)
                 {
-                    Player.QBRWTE p = K.Stats[i];
-                    string sql = $"INSERT Players.PlayerStats(PlayerID, XPMade, XPMissed, FGGD, FGNG, TeamGameID) " +
+                    Player.Kicker p = K.KickerStats[i];
+                    string sql = $"INSERT Players.KickerStats(PlayerID, XPMade, XPMissed, FGGD, FGNG, TeamGameID) " +
                         $"VALUES((SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = N'{K.Name}'), {p.XPMade}, {p.XPMissed}, {p.FGGD}, {p.FGNG}, " +
                         $"(SELECT DISTINCT(G.GameID) FROM Games.Game G RIGHT JOIN NFL.Teams T ON T.TeamID = G.HomeTeamID OR T.TeamID = G.VisitorTeamID " +
                         $"RIGHT JOIN Players.TeamPlayer TP ON TP.TeamID = T.TeamID RIGHT JOIN Players.PlayerInfo Player ON Player.Name = TP.Name WHERE T.TeamID = " +
@@ -258,14 +259,18 @@ namespace UserInterface
                     adapter.InsertCommand.ExecuteNonQuery();
                     command.Dispose();
                 }
-            }/*
+            }
             foreach (Player.PlayerInfo DEF in controller.Defense)
             {
+                int k = 1;
                 for (int i = 0; i < DEF.DefStats.Count; i++)
                 {
                     Player.Defense p = DEF.DefStats[i];
-                    string sql = $"INSERT Players.DefenseStats(PlayerID, PassYardsAllowed, RushYardsAllowed, Touchdowns, Safeties, Interceptions, Fumbles, TeamGameID, ByeWeek) " +
-                        $"VALUES((SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = N'{DEF.Name}'), {p.PassYardsAllowed}, {p.RushYardsAllowed}, {p.Touchdowns}, {p.Safeties}, {p.Interceptions}, {p.Fumbles}, {p.GameID}, {p.ByeWeek})";
+                    string sql = $"INSERT Players.DefenseStats(PlayerID, PassYardsAllowed, RushYardsAllowed, Touchdowns, Safeties, Interceptions, Fumbles, TeamGameID) " +
+                        $"VALUES({k}, {p.PassYardsAllowed}, {p.RushYardsAllowed}, {p.Touchdowns}, {p.Safeties}, {p.Interceptions}, {p.Fumbles}, " +
+                        $"(SELECT DISTINCT(G.GameID) FROM Games.Game G RIGHT JOIN NFL.Teams T ON T.TeamID = G.HomeTeamID OR T.TeamID = G.VisitorTeamID " +
+                        $"RIGHT JOIN Players.TeamPlayer TP ON TP.TeamID = T.TeamID RIGHT JOIN Players.PlayerInfo Player ON Player.Name = TP.Name WHERE T.TeamID = {k} " +
+                        $"ORDER BY G.GameID ASC OFFSET {i} ROWS FETCH NEXT 1 ROWS ONLY))";
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     command = new SqlCommand(sql, connection);
@@ -273,7 +278,8 @@ namespace UserInterface
                     adapter.InsertCommand.ExecuteNonQuery();
                     command.Dispose();
                 }
-            }*/
+                k++;
+            }
         }
 
     }

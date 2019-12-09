@@ -93,31 +93,6 @@ namespace FantasyData.Controller
             }
         }
 
-        public void KickerList(string file)
-        {
-            using(StreamReader sr = new StreamReader(file))
-            {
-                sr.ReadLine();
-                for(int i = 0; i < 16; i++)
-                {
-                    foreach(Player.PlayerInfo Player in Kickers)
-                    {
-                        
-                        Player.Kicker p = new Player.Kicker();
-                        if (sr.EndOfStream) break;
-                        string line = sr.ReadLine();
-                        string[] pLine = line.Split('|');
-                        p.XPMade = pLine[0];
-                        p.XPMissed = pLine[1];
-                        p.FGGD = pLine[2];
-                        p.FGNG = pLine[3];
-                        Player.KickerStats.Add(p);                         
-                    }
-                }
-                Console.WriteLine("The Number of K is " + Kickers.Count);
-                Console.WriteLine("The Number of K Stats is " + Kickers[0].KickerStats.Count);
-            }
-        }
         public void QuarterBackList(string file)
         {
             using(StreamReader sr = new StreamReader(file))
@@ -226,6 +201,32 @@ namespace FantasyData.Controller
                 }
                 Console.WriteLine("The Number of WR is " + WideReceivers.Count);
                 Console.WriteLine("The Number of WR Stats is " + WideReceivers[0].Stats.Count);
+            }
+        }
+
+        public void KickerList(string file)
+        {
+            using (StreamReader sr = new StreamReader(file))
+            {
+                sr.ReadLine();
+                for (int i = 0; i < 16; i++)
+                {
+                    foreach (Player.PlayerInfo Player in Kickers)
+                    {
+
+                        Player.Kicker p = new Player.Kicker();
+                        if (sr.EndOfStream) break;
+                        string line = sr.ReadLine();
+                        string[] pLine = line.Split('|');
+                        p.XPMade = pLine[0];
+                        p.XPMissed = pLine[1];
+                        p.FGGD = pLine[2];
+                        p.FGNG = pLine[3];
+                        Player.KickerStats.Add(p);
+                    }
+                }
+                Console.WriteLine("The Number of K is " + Kickers.Count);
+                Console.WriteLine("The Number of K Stats is " + Kickers[0].KickerStats.Count);
             }
         }
 
