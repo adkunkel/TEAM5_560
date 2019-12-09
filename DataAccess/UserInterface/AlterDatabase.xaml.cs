@@ -56,6 +56,8 @@ namespace UserInterface
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
+                MessageBox.Show("Nope, Dont Do This");
+                /*
                 SqlCommand command;
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 String sql;
@@ -63,7 +65,7 @@ namespace UserInterface
                 command = new SqlCommand(sql, connection);
                 adapter.InsertCommand = new SqlCommand(sql, connection);
                 adapter.InsertCommand.ExecuteNonQuery();
-                command.Dispose();
+                command.Dispose();*/
             }
             else
             {
