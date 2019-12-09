@@ -43,7 +43,7 @@
                 DEF
             </Button>
             <Button Grid.Row="3" Grid.ColumnSpan="2" FontSize="24" Margin="5" Click="BackButton">
-                Query Database
+                Query Selection Page
             </Button>
         </Grid>
         <DataGrid Name="QueryData" ItemsSource="{Binding}" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>

@@ -34,9 +34,9 @@
                 Yardage Leaders
             </Button>
             <Button Grid.Row="4" FontSize="24" Margin="5" Click="BackButton">
-                Query Selection
+                Query Section Page
             </Button>
         </Grid>
-        <ListBox Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <DataGrid Name="QueryData" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
     </Grid>
 </Page>
