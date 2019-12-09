@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.IO;
+using System.Data;
 
 namespace UserInterface
 {
@@ -23,6 +24,9 @@ namespace UserInterface
     public partial class NonReportQuery : Page
     {
         private SqlConnection connection;
+
+        private DataTable queryData;
+        
         public NonReportQuery(SqlConnection sqlConnection)
         {
             InitializeComponent();
@@ -39,17 +43,14 @@ namespace UserInterface
             {
                 SqlCommand command;
                 SqlDataReader dataReader;
-                String sql, Output = "";
+                String sql;
+
                 sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query1.sql");
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Output = Output + dataReader.GetValue(1) + "\n";
-                }
-                MessageBox.Show(Output);
-
-                dataReader.Close();
+                queryData = new DataTable();
+                queryData.Load(dataReader);
+                QueryData.ItemsSource = queryData.DefaultView;
                 command.Dispose();
             }
             else
@@ -69,17 +70,13 @@ namespace UserInterface
             {
                 SqlCommand command;
                 SqlDataReader dataReader;
-                String sql, Output = "";
+                String sql;
                 sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query2.sql");
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Output = Output + dataReader.GetValue(0) + "\n";
-                }
-                MessageBox.Show(Output);
-
-                dataReader.Close();
+                queryData = new DataTable();
+                queryData.Load(dataReader);
+                QueryData.ItemsSource = queryData.DefaultView;
                 command.Dispose();
             }
             else
@@ -99,17 +96,13 @@ namespace UserInterface
             {
                 SqlCommand command;
                 SqlDataReader dataReader;
-                String sql, Output = "";
+                String sql;
                 sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query3.sql");
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Output = Output + dataReader.GetValue(0) + " " + dataReader.GetValue(1) + "\n";
-                }
-                MessageBox.Show(Output);
-
-                dataReader.Close();
+                queryData = new DataTable();
+                queryData.Load(dataReader);
+                QueryData.ItemsSource = queryData.DefaultView;
                 command.Dispose();
             }
             else
@@ -129,17 +122,13 @@ namespace UserInterface
             {
                 SqlCommand command;
                 SqlDataReader dataReader;
-                String sql, Output = "";
+                String sql;
                 sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query4.sql");
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Output = Output + dataReader.GetValue(0) + "\n";
-                }
-                MessageBox.Show(Output);
-
-                dataReader.Close();
+                queryData = new DataTable();
+                queryData.Load(dataReader);
+                QueryData.ItemsSource = queryData.DefaultView;
                 command.Dispose();
             }
             else
@@ -159,17 +148,13 @@ namespace UserInterface
             {
                 SqlCommand command;
                 SqlDataReader dataReader;
-                String sql, Output = "";
+                String sql;
                 sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query5.sql");
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Output = Output + dataReader.GetValue(0) + "\n";
-                }
-                MessageBox.Show(Output);
-
-                dataReader.Close();
+                queryData = new DataTable();
+                queryData.Load(dataReader);
+                QueryData.ItemsSource = queryData.DefaultView;
                 command.Dispose();
             }
             else
@@ -189,17 +174,13 @@ namespace UserInterface
             {
                 SqlCommand command;
                 SqlDataReader dataReader;
-                String sql, Output = "";
+                String sql;
                 sql = File.ReadAllText(@"..\\..\\..\\FantasyData\\SQL\\query6.sql");
                 command = new SqlCommand(sql, connection);
                 dataReader = command.ExecuteReader();
-                while (dataReader.Read())
-                {
-                    Output = Output + dataReader.GetValue(0) + "\n";
-                }
-                MessageBox.Show(Output);
-
-                dataReader.Close();
+                queryData = new DataTable();
+                queryData.Load(dataReader);
+                QueryData.ItemsSource = queryData.DefaultView;
                 command.Dispose();
             }
             else

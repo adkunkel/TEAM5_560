@@ -46,6 +46,6 @@
                 Query Database
             </Button>
         </Grid>
-        <ListBox Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <DataGrid Name="QueryData" ItemsSource="{Binding}" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
     </Grid>
 </Page>
