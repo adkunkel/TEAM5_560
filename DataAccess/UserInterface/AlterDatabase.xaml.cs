@@ -81,11 +81,11 @@ namespace UserInterface
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     String sql;
-                    for (int i = 1; i < 500; i++)
+                    for (int i = 1; i < 501; i++)
                     {
                         sql = $"UPDATE Players.PlayerInfo " +
                             $"SET Name = N'{Keller}{ToRoman(i)}' " +
-                            $"WHERE PlayerID = {i} " +
+                            $"WHERE PlayerID = {i}" +
                             $"UPDATE Players.TeamPlayer " +
                             $"SET Name = N'{Keller}{ToRoman(i)}' " +
                             $"WHERE PlayerID = {i}";
@@ -98,7 +98,7 @@ namespace UserInterface
                 }
                 catch
                 {
-                    MessageBox.Show("Invalid Input. Player name must match name in the database.");
+                    MessageBox.Show("Not Possible Now");
                 }
             }
         }
