@@ -16,6 +16,7 @@ namespace FantasyData.Controller
         public List<Player.PlayerInfo> RunningBacks = new List<Player.PlayerInfo>(100);
         public List<Player.PlayerInfo> TightEnds = new List<Player.PlayerInfo>(75);
         public List<Player.PlayerInfo> WideReceivers  = new List<Player.PlayerInfo>(200);
+        public List<Player.PlayerInfo> Kickers = new List<Player.PlayerInfo>(50;)
         public List<Player.PlayerInfo> Defense = new List<Player.PlayerInfo>(32);
         
         public void SortPlayerInfo()
@@ -35,6 +36,9 @@ namespace FantasyData.Controller
                         break;
                     case Position.TE:
                         TightEnds.Add(p);
+                        break;
+                    case Position.K:
+                        Kickers.Add(p);
                         break;
                     default:
                         break;
@@ -66,6 +70,9 @@ namespace FantasyData.Controller
                     case "TE":
                         position = Position.TE;
                         break;
+                    case "K":
+                        position = Position.K;
+                        break;
                     default:
                         position = Position.N;
                         break;
@@ -86,6 +93,31 @@ namespace FantasyData.Controller
             }
         }
 
+        public void KickerList(string file)
+        {
+            using(StreamReader sr = new StreamReader(file))
+            {
+                sr.ReadLine();
+                for(int i = 0; i < 16; i++)
+                {
+                    foreach(Player.PlayerInfo Player in Kickers)
+                    {
+                        
+                        Player.Kicker p = new Player.Kicker();
+                        if (sr.EndOfStream) break;
+                        string line = sr.ReadLine();
+                        string[] pLine = line.Split('|');
+                        p.XPMade = pLine[0];
+                        p.XPMissed = pLine[1];
+                        p.FGGD = pLine[2];
+                        p.FGNG = pLine[3];
+                        Player.KickerStats.Add(p);                         
+                    }
+                }
+                Console.WriteLine("The Number of K is " + Kickers.Count);
+                Console.WriteLine("The Number of K Stats is " + Kickers[0].KickerStats.Count);
+            }
+        }
         public void QuarterBackList(string file)
         {
             using(StreamReader sr = new StreamReader(file))

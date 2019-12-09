@@ -157,6 +157,7 @@ namespace UserInterface
             controller.RunningBackList(@"..\\..\\..\\..\\GeneratedDataRBStats.txt");
             controller.WideReceiversList(@"..\\..\\..\\..\\GeneratedDataWRStats.txt");
             controller.TightEndsList(@"..\\..\\..\\..\\GeneratedDataTEStats.txt");
+            controller.KickerList("@..\\..\\..\\..\\GeneratedDataKickerStats.txt");
             controller.DefenseList(@"..\\..\\..\\..\\DefensiveStats.txt");
             foreach (Player.PlayerInfo QB in controller.QuarterBacks)
             {
@@ -228,6 +229,26 @@ namespace UserInterface
                         $"(SELECT DISTINCT(G.GameID) FROM Games.Game G RIGHT JOIN NFL.Teams T ON T.TeamID = G.HomeTeamID OR T.TeamID = G.VisitorTeamID " +
                         $"RIGHT JOIN Players.TeamPlayer TP ON TP.TeamID = T.TeamID RIGHT JOIN Players.PlayerInfo Player ON Player.Name = TP.Name WHERE T.TeamID = " +
                         $"(SELECT TPInfo.TeamID FROM Players.PlayerInfo Info INNER JOIN Players.TeamPlayer TPInfo ON TPInfo.Name = Info.Name WHERE Info.Name = '{TE.Name}') " +
+                        $"ORDER BY G.GameID ASC OFFSET {i} ROWS FETCH NEXT 1 ROWS ONLY" +
+                        $"))";
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    command = new SqlCommand(sql, connection);
+                    adapter.InsertCommand = new SqlCommand(sql, connection);
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Dispose();
+                }
+            }
+            foreach (Player.PlayerInfo K in controller.Kickers)
+            {
+                for (int i = 0; i < K.Stats.Count; i++)
+                {
+                    Player.QBRWTE p = K.Stats[i];
+                    string sql = $"INSERT Players.PlayerStats(PlayerID, XPMade, XPMissed, FGGD, FGNG, TeamGameID) " +
+                        $"VALUES((SELECT PI.PlayerID FROM Players.PlayerInfo PI WHERE PI.[NAME] = N'{K.Name}'), {p.XPMade}, {p.XPMissed}, {p.FGGD}, {p.FGNG}, " +
+                        $"(SELECT DISTINCT(G.GameID) FROM Games.Game G RIGHT JOIN NFL.Teams T ON T.TeamID = G.HomeTeamID OR T.TeamID = G.VisitorTeamID " +
+                        $"RIGHT JOIN Players.TeamPlayer TP ON TP.TeamID = T.TeamID RIGHT JOIN Players.PlayerInfo Player ON Player.Name = TP.Name WHERE T.TeamID = " +
+                        $"(SELECT TPInfo.TeamID FROM Players.PlayerInfo Info INNER JOIN Players.TeamPlayer TPInfo ON TPInfo.Name = Info.Name WHERE Info.Name = '{K.Name}') " +
                         $"ORDER BY G.GameID ASC OFFSET {i} ROWS FETCH NEXT 1 ROWS ONLY" +
                         $"))";
                     SqlCommand command;
