@@ -5,4 +5,5 @@ inner join Games.TeamGame tg on tg.TeamGameID = p.TeamGameID
 inner join Players.TeamPlayer tp on tp.PlayerID = p.PlayerID
 inner join Players.PlayerInfo pi on pi.PlayerID = tp.PlayerID
 inner join NFL.Teams t on t.TeamID = tp.TeamID
+where tg.Week = 1
 Order by p.Touchdowns desc
