@@ -12,7 +12,6 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" FontSize="48" Margin="10, 10, 10, 5" Click="AlterDatabaseButton">
             Alter Database
@@ -20,7 +19,7 @@
         <Button Grid.Row="1" FontSize="48" Margin="10, 5, 10, 10" Click="QueryDatabaseButton">
             Query Database
         </Button>
-        <Button Name="CloseConnection" Grid.Row="2" FontSize="48" Margin="10, 5, 10, 10" Click="CloseConnectionButton">
+        <Button Name="CloseConnection" Visibility="Hidden" Grid.Row="2" FontSize="48" Margin="10, 5, 10, 10" Click="CloseConnectionButton">
             Close Connection
         </Button>
         <Button Name="OpenConnection" Visibility="Hidden" Grid.Row="2" FontSize="48" Margin="10, 5, 10, 10" Click="OpenConnectionButton">

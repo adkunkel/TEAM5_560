@@ -77,11 +77,11 @@ namespace UserInterface
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 CloseConnection.Visibility = Visibility.Hidden;
-                OpenConnection.Visibility = Visibility.Visible;
+                OpenConnection.Visibility = Visibility.Hidden;
             }
             else
             {
-                CloseConnection.Visibility = Visibility.Visible;
+                CloseConnection.Visibility = Visibility.Hidden;
                 OpenConnection.Visibility = Visibility.Hidden;
             }
         }
@@ -271,7 +271,7 @@ namespace UserInterface
                         $"VALUES({k}, {p.PassYardsAllowed}, {p.RushYardsAllowed}, {p.Touchdowns}, {random.Next(10)}, {p.Safeties}, {p.Interceptions}, {p.Fumbles}, " +
                         $"(SELECT DISTINCT(G.GameID) FROM Games.Game G RIGHT JOIN NFL.Teams T ON T.TeamID = G.HomeTeamID OR T.TeamID = G.VisitorTeamID " +
                         $"RIGHT JOIN Players.TeamPlayer TP ON TP.TeamID = T.TeamID RIGHT JOIN Players.PlayerInfo Player ON Player.Name = TP.Name WHERE T.TeamID = {k} " +
-                        $"ORDER BY G.GameID ASC OFFSET {i} ROWS FETCH NEXT 1 ROWS ONLY), (SELECT T.ByeWeek FROM NFL.Teams T WHERE T.TeamID = {k})";
+                        $"ORDER BY G.GameID ASC OFFSET {i} ROWS FETCH NEXT 1 ROWS ONLY), (SELECT T.ByeWeek FROM NFL.Teams T WHERE T.TeamID = {k}))";
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     command = new SqlCommand(sql, connection);
