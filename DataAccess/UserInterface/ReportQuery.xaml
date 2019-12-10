@@ -10,8 +10,8 @@
 
     <Grid Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Background="AntiqueWhite">
             <Grid.RowDefinitions>
@@ -21,22 +21,69 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" FontSize="24" Margin="5" Click="DefenseButton">
-                Defense Rankings
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Name="Week" Grid.Column="0" Margin="5" TextAlignment="Center" FontSize="36"/>
+                <Button Grid.Column="1" FontSize="24" Margin="5" Click="TopRankingButton">
+                    Top 10
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox Name="Team" FontSize="32" Grid.Column="0" Margin="5">
+                    <ComboBoxItem Content="Arizona Cardinals"/>
+                    <ComboBoxItem Content="Atlanta Falcons"/>
+                    <ComboBoxItem Content="Baltimore Ravens"/>
+                    <ComboBoxItem Content="Buffalo Bills"/>
+                    <ComboBoxItem Content="Carolina Panthers"/>
+                    <ComboBoxItem Content="Chicago Bears"/>
+                    <ComboBoxItem Content="Cincinnati Bengals"/>
+                    <ComboBoxItem Content="Cleveland Browns"/>
+                    <ComboBoxItem Content="Dallas Cowboys"/>
+                    <ComboBoxItem Content="Denver Broncos"/>
+                    <ComboBoxItem Content="Detroit Lions"/>
+                    <ComboBoxItem Content="Green Bay Packers"/>
+                    <ComboBoxItem Content="Houston Texans"/>
+                    <ComboBoxItem Content="Indianapolis Colts"/>
+                    <ComboBoxItem Content="Jacksonville Jaguars"/>
+                    <ComboBoxItem Content="Kansas City Chiefs"/>
+                    <ComboBoxItem Content="Los Angeles Chargers"/>
+                    <ComboBoxItem Content="Los Angeles Rams"/>
+                    <ComboBoxItem Content="Miami Dolphins"/>
+                    <ComboBoxItem Content="Minnesota Vikings"/>
+                    <ComboBoxItem Content="New England Patriots"/>
+                    <ComboBoxItem Content="New Orleans Saints"/>
+                    <ComboBoxItem Content="New York Giants"/>
+                    <ComboBoxItem Content="New York Jets"/>
+                    <ComboBoxItem Content="Oakland Raiders"/>
+                    <ComboBoxItem Content="Philadelphia Eagles"/>
+                    <ComboBoxItem Content="Pittsburg Steelers"/>
+                    <ComboBoxItem Content="San Francisco 49ers"/>
+                    <ComboBoxItem Content="Seattle Seahawks"/>
+                    <ComboBoxItem Content="Tampa Bay Buccaneers"/>
+                    <ComboBoxItem Content="Tennessee Titans"/>
+                    <ComboBoxItem Content="Washington Redskins"/>
+                </ComboBox>
+                <Button Grid.Column="1" FontSize="24" Margin="5" Click="TeamRosterButton">
+                    Team Roster
+                </Button>
+            </Grid>
+            <Button Grid.Row="2" FontSize="24" Margin="5" Click="SeasonDefStatsButton">
+                Season Defense
             </Button>
-            <Button Grid.Row="1" FontSize="24" Margin="5" Click="TouchdownButton">
-                Touchdown Leaders
-            </Button>
-            <Button Grid.Row="2" FontSize="24" Margin="5" Click="ExpertButton">
-                Expert Rankings
-            </Button>
-            <Button Grid.Row="3" FontSize="24" Margin="5" Click="YardageButton">
-                Yardage Leaders
+            <Button Grid.Row="3" FontSize="24" Margin="5" Click="SeasonKickerStatsButton">
+                Season Kicker
             </Button>
             <Button Grid.Row="4" FontSize="24" Margin="5" Click="BackButton">
-                Query Selection
+                Query Section Page
             </Button>
         </Grid>
-        <ListBox Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <DataGrid Name="QueryData" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
     </Grid>
 </Page>

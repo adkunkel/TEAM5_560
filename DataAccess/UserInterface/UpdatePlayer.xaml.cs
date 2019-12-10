@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,17 +13,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
 
 namespace UserInterface
 {
     /// <summary>
-    /// Interaction logic for InsertPlayer.xaml
+    /// Interaction logic for UpdatePlayer.xaml
     /// </summary>
-    public partial class InsertPlayer : Page
+    public partial class UpdatePlayer : Page
     {
         private SqlConnection connection;
-        public InsertPlayer(SqlConnection sqlConnection)
+        public UpdatePlayer(SqlConnection sqlConnection)
         {
             InitializeComponent();
             connection = sqlConnection;
@@ -33,7 +33,7 @@ namespace UserInterface
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void InsertButton(object sender, EventArgs args)
+        private void UpdateButton(object sender, EventArgs args)
         {
             if (connection.State == System.Data.ConnectionState.Open)
             {
@@ -44,23 +44,26 @@ namespace UserInterface
                     int weight = Convert.ToInt32(PlayerWeight.Text);
                     string position = Position.SelectionBoxItem.ToString();
                     string team = Team.SelectionBoxItem.ToString();
-                    
+
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     String sql;
-                    sql = $"INSERT Players.TeamPlayer(TeamID, Name) VALUES ((SELECT T.TeamID FROM NFL.Teams T WHERE T.TeamName = '{team}'), N'{name}')" +
-                        $"INSERT Players.PlayerInfo(PlayerID, [Name], [Status], Height, [Weight], YearsPro, Position) " +
-                        $"VALUES ((SELECT TP.PlayerID FROM Players.TeamPlayer TP WHERE TP.[Name] = '{name}'), N'{name}', N'Active', {height}, {weight}, 1, N'QB')";
+                    sql = $"UPDATE Players.PlayerInfo " +
+                        $"SET Weight = {weight}, Height = {height}, Position = N'{position}' " +
+                        $"WHERE Name = N'{name}' " +
+                        $"UPDATE Players.TeamPlayer " +
+                        $"SET TeamID = (SELECT Team.TeamID FROM NFL.Teams AS Team WHERE Team.TeamName = '{team}') " +
+                        $"WHERE PlayerID = (SELECT Player.PlayerID FROM Players.PlayerInfo AS Player WHERE Player.Name = '{name}')";
                     command = new SqlCommand(sql, connection);
                     adapter.InsertCommand = new SqlCommand(sql, connection);
                     adapter.InsertCommand.ExecuteNonQuery();
                     command.Dispose();
-                    MessageBox.Show("Insert Successful");
+                    MessageBox.Show("Update Successful");
                     NavigationService.Navigate(new AlterDatabase(connection));
                 }
                 catch
                 {
-                    MessageBox.Show("Invalid Input");
+                    MessageBox.Show("Invalid Input. Player name must match name in the database.");
                 }
             }
             else
