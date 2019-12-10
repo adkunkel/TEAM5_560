@@ -5,4 +5,4 @@ from NFL.Teams t
 	inner join Players.PlayerInfo pi on pi.PlayerID = tp.PlayerID
 	inner join Players.PlayerStats ps on ps.PlayerID = tp.PlayerID
 where t.TeamName = 'Kansas City Chiefs'
-group by t.TeamName, tp.Name, pi.Position
+group by t.TeamName, tp.Name, pi.Position;
