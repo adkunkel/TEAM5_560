@@ -261,16 +261,17 @@ namespace UserInterface
                 }
             }
             int k = 1;
+            Random random = new Random();
             foreach (Player.PlayerInfo DEF in controller.Defense)
             {
                 for (int i = 0; i < DEF.DefStats.Count; i++)
                 {
                     Player.Defense p = DEF.DefStats[i];
-                    string sql = $"INSERT Players.DefenseStats(PlayerID, PassYardsAllowed, RushYardsAllowed, Touchdowns, Safeties, Interceptions, Fumbles, TeamGameID) " +
-                        $"VALUES({k}, {p.PassYardsAllowed}, {p.RushYardsAllowed}, {p.Touchdowns}, {p.Safeties}, {p.Interceptions}, {p.Fumbles}, " +
+                    string sql = $"INSERT Players.DefenseStats(PlayerID, PassYardsAllowed, RushYardsAllowed, TouchdownsAllowed, Touchdowns, Safeties, Interceptions, Fumbles, TeamGameID, ByeWeek) " +
+                        $"VALUES({k}, {p.PassYardsAllowed}, {p.RushYardsAllowed}, {p.Touchdowns}, {random.Next(10)}, {p.Safeties}, {p.Interceptions}, {p.Fumbles}, " +
                         $"(SELECT DISTINCT(G.GameID) FROM Games.Game G RIGHT JOIN NFL.Teams T ON T.TeamID = G.HomeTeamID OR T.TeamID = G.VisitorTeamID " +
                         $"RIGHT JOIN Players.TeamPlayer TP ON TP.TeamID = T.TeamID RIGHT JOIN Players.PlayerInfo Player ON Player.Name = TP.Name WHERE T.TeamID = {k} " +
-                        $"ORDER BY G.GameID ASC OFFSET {i} ROWS FETCH NEXT 1 ROWS ONLY))";
+                        $"ORDER BY G.GameID ASC OFFSET {i} ROWS FETCH NEXT 1 ROWS ONLY), (SELECT T.ByeWeek FROM NFL.Teams T WHERE T.TeamID = {k})";
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     command = new SqlCommand(sql, connection);
